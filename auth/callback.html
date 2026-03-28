@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epsilon Identity | Connecting...</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --aproxi-blue: #8400ff;
+            --epsilon-dark: #0a192f;
+            --text-cyan: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(to right, black, rgb(138, 6, 214));
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .connection-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .visual-bridge {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--text-cyan);
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+            overflow: hidden;
+        }
+
+        .logo-circle img {
+            width: 70%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        #user-pfp {
+            border: 2px solid #a855f7;
+            /* Purple for User/Neote vibes */
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: none;
+            /* Hidden until loaded */
+        }
+
+        /* The Animated Pulse Line */
+        .bridge-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #a855f7, var(--aproxi-blue));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bridge-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .status-text {
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: var(--text-cyan);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="connection-container">
+        <div class="visual-bridge">
+            <img id="user-pfp" src="" alt="User Profile">
+
+            <div class="bridge-line"></div>
+
+
+            <img src="https://epsilon-site-v1.vercel.app/epsilon%20logo.png" alt="Epsilon Core" class="logo-circle">
+
+
+            <div class="bridge-line"></div>
+
+
+            <img class="logo-circle" src="https://epsilon-aproxi.vercel.app/logo.png" alt="Epsilon Aproxi">
+
+        </div>
+
+        <div class="status-text" id="status">Syncing Epsilon Identity...</div>
+    </div>
+    <script>
+        const supabaseUrl = 'https://gfsqzkyviivhvyqadpeg.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdmc3F6a3l2aWl2aHZ5cWFkcGVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0NDI0NDQsImV4cCI6MjA4NjAxODQ0NH0.MwC6dMZKFZMyklCJKqr4DPek8dxR-EswBZSd1L_AkMA';
+
+        const _supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        async function handleAuth() {
+            try {
+                const { data: { session }, error } = await _supabase.auth.getSession();
+
+                if (error) throw error;
+
+                if (session) {
+                    const user = session.user;
+                    const pfpImg = document.getElementById('user-pfp');
+
+                    // 1. PFP FETCHING
+                    const avatarUrl = user.user_metadata?.avatar_url ||
+                        user.user_metadata?.picture ||
+                        user.user_metadata?.avatar;
+
+                    if (avatarUrl) {
+                        pfpImg.src = avatarUrl;
+                        pfpImg.style.display = 'block';
+                    } else {
+                        // Unique fallback icon so it doesn't look broken
+                        pfpImg.src = `https://api.dicebear.com/7.x/bottts/svg?seed=${user.id}`;
+                        pfpImg.style.display = 'block';
+                    }
+
+                    // 2. THE USERNAME FIX
+                    // We check 'username' first, then 'display_name', then 'full_name'
+                    const epsilonUsername = user.user_metadata?.username ||
+                        user.user_metadata?.display_name ||
+                        user.user_metadata?.full_name ||
+                        user.email.split('@')[0];
+
+                    document.getElementById('status').innerHTML = `
+                    <div style="margin-bottom: 20px;">
+                        <span style="opacity: 0.7; font-size: 0.8rem;">EPSILON ID DETECTED</span><br>
+                        <b style="color: #a855f7; font-size: 1.4rem; text-shadow: 0 0 10px rgba(168,85,247,0.5);">
+                            ${epsilonUsername}
+                        </b>
+                    </div>
+                    <div style="display: flex; gap: 15px; justify-content: center;">
+                        <button id="confirmBtn" style="
+                            background: #8400ff; 
+                            color: white; 
+                            border: none; 
+                            padding: 14px 28px; 
+                            border-radius: 12px; 
+                            cursor: pointer; 
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            box-shadow: 0 4px 20px rgba(132, 0, 255, 0.5);
+                            transition: transform 0.2s;
+                        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            Connect to Aproxi
+                        </button>
+                        
+                        <button id="cancelBtn" style="
+                            background: rgba(255,255,255,0.05); 
+                            color: #ff4d4d; 
+                            border: 1px solid #ff4d4d; 
+                            padding: 14px 28px; 
+                            border-radius: 12px; 
+                            cursor: pointer;
+                        ">Abort</button>
+                    </div>
+                `;
+
+                    document.getElementById('confirmBtn').onclick = () => {
+                        window.location.href = '../dashboard.html';
+                    };
+
+                    document.getElementById('cancelBtn').onclick = () => {
+                        window.location.href = '../index.html';
+                    };
+
+                } else {
+                    window.location.href = '../index.html';
+                }
+            } catch (err) {
+                document.getElementById('status').innerText = "SYSTEM ERROR: AUTH FAILED";
+                console.error(err);
+            }
+        }
+
+        handleAuth();
+    </script>
+</body>
+
+</html>
