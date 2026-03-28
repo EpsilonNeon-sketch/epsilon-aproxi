@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epsilon Aproxi - POS & BMS System</title>
+    <title>Epsilon Aproxi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="./manifest.json">
     <link rel="icon" href="./logo.png">
@@ -458,11 +458,6 @@
                 class="sidebar-item flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600">
                 <i data-lucide="shopping-cart" class="w-5 h-5 mr-3"></i>
                 Point of Sale
-            </a>
-            <a href="#" data-page="delivery-management"
-                class="sidebar-item flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600">
-                <i data-lucide="truck" class="w-5 h-5 mr-3"></i>
-                Delivery Management
             </a>
         </nav>
     </aside>
@@ -1134,128 +1129,81 @@
                 <h2 class="text-2xl font-bold text-gray-800">Point of Sale</h2>
                 <p class="text-gray-600">Process sales and transactions</p>
             </div>
-            ...existing code...
-        </div>
 
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Products and Services Selection -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-lg shadow p-4 mb-4">
+                        <div class="flex space-x-2 mb-4">
+                            <button id="pos-products-tab"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium">Products</button>
+                            <button id="pos-services-tab"
+                                class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium">Services</button>
+                        </div>
+                        <div class="relative mb-4">
+                            <input type="text" id="pos-search" placeholder="Search products or services..."
+                                class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-5 h-5"></i>
+                        </div>
+                        <div id="pos-items-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
+                            <!-- POS items will be populated here -->
+                        </div>
+                    </div>
+                </div>
 
-        <div id="delivery-management-page" class="page p-6 hidden"
-            style="padding-top:4.5rem; min-height:calc(100vh - 4.5rem);">
-            <div class="mb-6 flex justify-between items-center">
-                <div>
-                    <h2 class="text-2xl font-bold text-gray-800">Delivery Management</h2>
-                    <p class="text-gray-600">Track and manage deliveries</p>
+                <!-- Cart -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Cart</h3>
+                        <div id="pos-cart" class="space-y-2 max-h-64 overflow-y-auto mb-4">
+                            <!-- Cart items will be populated here -->
+                        </div>
+                        <div class="border-t pt-4 space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Subtotal:</span>
+                                <span id="pos-subtotal" class="font-medium">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tax (10%):</span>
+                                <span id="pos-tax" class="font-medium">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Discount:</span>
+                                <input type="number" id="pos-discount" class="w-20 text-right border rounded px-2 py-1"
+                                    value="0" min="0" step="0.01">
+                            </div>
+                            <div class="flex justify-between font-bold text-lg">
+                                <span>Total:</span>
+                                <span id="pos-total">$0.00</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 space-y-2">
+                            <div class="flex space-x-2">
+                                <input type="text" id="pos-customer-name" placeholder="Customer name"
+                                    class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="email" id="pos-customer-email" placeholder="Email"
+                                    class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <select id="pos-payment-method"
+                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="cash">Cash</option>
+                                <option value="card">Card</option>
+                                <option value="transfer">Bank Transfer</option>
+                            </select>
+                            <button id="pos-checkout-btn"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg">
+                                Checkout
+                            </button>
+                            <button id="pos-clear-cart-btn"
+                                class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg">
+                                Clear Cart
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Delivery ID</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Order #</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Customer</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Address</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Status</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Assigned To</th>
-                                <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="delivery-table-body" class="bg-white divide-y divide-gray-200">
-                            <!-- Deliveries will be populated here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Actions</th>
-        </tr>
-        </thead>
-        <tbody id="delivery-table-body" class="bg-white divide-y divide-gray-200">
-            <!-- Deliveries will be populated here -->
-        </tbody>
-        </table>
-</div>
-</div>
-</div>
-<div class="relative mb-4">
-    <input type="text" id="pos-search" placeholder="Search products or services..."
-        class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-    <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-5 h-5"></i>
-</div>
-<div id="pos-items-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
-    <!-- POS items will be populated here -->
-</div>
-</div>
-</div>
-
-<!-- Cart -->
-<div class="lg:col-span-1">
-    <div class="bg-white rounded-lg shadow p-4">
-        <h3 class="text-lg font-semibold text-gray-800 mb-4">Cart</h3>
-        <div id="pos-cart" class="space-y-2 max-h-64 overflow-y-auto mb-4">
-            <!-- Cart items will be populated here -->
-        </div>
-        <div class="border-t pt-4 space-y-2">
-            <div class="flex justify-between">
-                <span class="text-gray-600">Subtotal:</span>
-                <span id="pos-subtotal" class="font-medium">$0.00</span>
-            </div>
-            <div class="flex justify-between">
-                <span class="text-gray-600">Tax (10%):</span>
-                <span id="pos-tax" class="font-medium">$0.00</span>
-            </div>
-            <div class="flex justify-between">
-                <span class="text-gray-600">Discount:</span>
-                <input type="number" id="pos-discount" class="w-20 text-right border rounded px-2 py-1" value="0"
-                    min="0" step="0.01">
-            </div>
-            <div class="flex justify-between font-bold text-lg">
-                <span>Total:</span>
-                <span id="pos-total">$0.00</span>
-            </div>
-        </div>
-        <div class="mt-4 space-y-2">
-            <div class="flex space-x-2">
-                <input type="text" id="pos-customer-name" placeholder="Customer name"
-                    class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <input type="email" id="pos-customer-email" placeholder="Email"
-                    class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <select id="pos-payment-method"
-                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="cash">Cash</option>
-                <option value="card">Card</option>
-                <option value="transfer">Bank Transfer</option>
-            </select>
-            <button id="pos-checkout-btn"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg">
-                Checkout
-            </button>
-            <button id="pos-clear-cart-btn"
-                class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg">
-                Clear Cart
-            </button>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</main>
+    </main>
 </div>
 
 <!-- Modals -->
