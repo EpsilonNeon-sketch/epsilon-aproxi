@@ -454,6 +454,21 @@
                 <i data-lucide="users" class="w-5 h-5 mr-3"></i>
                 Employees
             </a>
+            <a href="#" data-page="customers"
+                class="sidebar-item flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600">
+                <i data-lucide="user-check" class="w-5 h-5 mr-3"></i>
+                Customers
+            </a>
+            <a href="#" data-page="facilities"
+                class="sidebar-item flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600">
+                <i data-lucide="building" class="w-5 h-5 mr-3"></i>
+                Facilities
+            </a>
+            <a href="#" data-page="assets"
+                class="sidebar-item flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600">
+                <i data-lucide="box" class="w-5 h-5 mr-3"></i>
+                Assets
+            </a>
             <a href="#" data-page="pos"
                 class="sidebar-item flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-l-4 border-transparent hover:border-blue-600">
                 <i data-lucide="shopping-cart" class="w-5 h-5 mr-3"></i>
@@ -1123,6 +1138,219 @@
             </div>
         </div>
 
+        <!-- Customers Page -->
+        <div id="customers" class="page p-6">
+            <div class="mb-6 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Customers</h2>
+                    <p class="text-gray-600">Manage your customer database</p>
+                </div>
+                <button id="add-customer-btn"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg flex items-center">
+                    <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
+                    Add Customer
+                </button>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="bg-white rounded-lg shadow p-4 mb-6">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" id="customer-search" placeholder="Search customers..."
+                                class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-5 h-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Table -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Customer</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Email</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Phone</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Address</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customers-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Customers will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-6 py-4 bg-gray-50 flex justify-between items-center">
+                    <div class="text-sm text-gray-700">
+                        Showing <span id="customer-showing-start">0</span> to <span id="customer-showing-end">0</span>
+                        of <span id="customer-total-count">0</span> results
+                    </div>
+                    <div class="flex space-x-2">
+                        <button id="customer-prev-page"
+                            class="px-3 py-1 border rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Previous
+                        </button>
+                        <button id="customer-next-page"
+                            class="px-3 py-1 border rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Facilities Page -->
+        <div id="facilities" class="page p-6">
+            <div class="mb-6 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Facilities</h2>
+                    <p class="text-gray-600">Manage facilities and assigned employees</p>
+                </div>
+                <button id="add-facility-btn"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg flex items-center">
+                    <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
+                    Add Facility
+                </button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 mb-6">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" id="facility-search" placeholder="Search facilities..."
+                                class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <select id="facility-status-filter"
+                        class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="maintenance">Maintenance</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="facilities-grid">
+                <!-- Facilities will be populated here -->
+            </div>
+        </div>
+
+        <!-- Assets Page -->
+        <div id="assets" class="page p-6">
+            <div class="mb-6 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Assets</h2>
+                    <p class="text-gray-600">Manage company assets and equipment</p>
+                </div>
+                <button id="add-asset-btn"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg flex items-center">
+                    <i data-lucide="plus" class="w-5 h-5 mr-2"></i>
+                    Add Asset
+                </button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-4 mb-6">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" id="asset-search" placeholder="Search assets..."
+                                class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <i data-lucide="search" class="absolute left-3 top-2.5 text-gray-400 w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <select id="asset-category-filter"
+                        class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Categories</option>
+                        <option value="IT Equipment">IT Equipment</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Vehicles">Vehicles</option>
+                        <option value="Machinery">Machinery</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <select id="asset-status-filter"
+                        class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="retired">Retired</option>
+                        <option value="disposed">Disposed</option>
+                    </select>
+                    <select id="asset-facility-filter"
+                        class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Facilities</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Asset</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Tag</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Category</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Facility</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Assigned To</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Value</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="assets-table-body" class="bg-white divide-y divide-gray-200">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="px-6 py-4 bg-gray-50 flex justify-between items-center">
+                    <div class="text-sm text-gray-700">
+                        Showing <span id="asset-showing-start">0</span> to <span id="asset-showing-end">0</span>
+                        of <span id="asset-total-count">0</span> results
+                    </div>
+                    <div class="flex space-x-2">
+                        <button id="asset-prev-page"
+                            class="px-3 py-1 border rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Previous
+                        </button>
+                        <button id="asset-next-page"
+                            class="px-3 py-1 border rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- POS Page -->
         <div id="pos" class="page p-6">
             <div class="mb-6">
@@ -1452,6 +1680,43 @@
     </div>
 </div>
 
+<!-- Customer Modal -->
+<div id="customer-modal" class="modal">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
+        <div class="px-6 py-4 border-b">
+            <h3 id="customer-modal-title" class="text-lg font-semibold text-gray-800">Add Customer</h3>
+        </div>
+        <form id="customer-form" class="px-6 py-4">
+            <div class="mb-4">
+                <label for="customer-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" id="customer-name" required
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="customer-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input type="email" id="customer-email"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="customer-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                <input type="text" id="customer-phone"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="customer-address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                <textarea id="customer-address" rows="3"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="customer-cancel-btn"
+                    class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg">Cancel</button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <!-- Employee Modal -->
 <div id="employee-modal" class="modal">
     <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
@@ -1515,6 +1780,364 @@
             <div class="mt-4 flex justify-end space-x-2">
                 <button type="button" id="bill-item-cancel-btn"
                     class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Asset Modal -->
+<div id="asset-modal" class="modal">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+        <div class="px-6 py-4 border-b flex justify-between items-center">
+            <h3 id="asset-modal-title" class="text-lg font-semibold text-gray-800">Add Asset</h3>
+            <button id="asset-close-btn" class="text-gray-400 hover:text-gray-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <form id="asset-form" class="px-6 py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="asset-name" class="block text-sm font-medium text-gray-700 mb-1">Asset Name</label>
+                    <input type="text" id="asset-name" required
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="asset-tag" class="block text-sm font-medium text-gray-700 mb-1">Asset Tag</label>
+                    <input type="text" id="asset-tag" required
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="asset-category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select id="asset-category"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="IT Equipment">IT Equipment</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Vehicles">Vehicles</option>
+                        <option value="Machinery">Machinery</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="asset-status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                    <select id="asset-status"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="active">Active</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="retired">Retired</option>
+                        <option value="disposed">Disposed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="asset-description" class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea id="asset-description" rows="2"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div>
+                    <label for="asset-manufacturer"
+                        class="block text-sm font-medium text-gray-700 mb-1">Manufacturer</label>
+                    <input type="text" id="asset-manufacturer"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="asset-model" class="block text-sm font-medium text-gray-700 mb-1">Model</label>
+                    <input type="text" id="asset-model"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="asset-serial" class="block text-sm font-medium text-gray-700 mb-1">Serial Number</label>
+                    <input type="text" id="asset-serial"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="asset-facility" class="block text-sm font-medium text-gray-700 mb-1">Facility</label>
+                    <select id="asset-facility"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">No Facility</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="asset-assigned-to" class="block text-sm font-medium text-gray-700 mb-1">Assigned
+                        To</label>
+                    <select id="asset-assigned-to"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Not Assigned</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="asset-purchase-date" class="block text-sm font-medium text-gray-700 mb-1">Purchase
+                        Date</label>
+                    <input type="date" id="asset-purchase-date"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="asset-warranty-expiry" class="block text-sm font-medium text-gray-700 mb-1">Warranty
+                        Expiry</label>
+                    <input type="date" id="asset-warranty-expiry"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="asset-purchase-cost" class="block text-sm font-medium text-gray-700 mb-1">Purchase
+                        Cost</label>
+                    <input type="number" id="asset-purchase-cost" step="0.01" min="0"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="asset-current-value" class="block text-sm font-medium text-gray-700 mb-1">Current
+                        Value</label>
+                    <input type="number" id="asset-current-value" step="0.01" min="0"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="asset-condition" class="block text-sm font-medium text-gray-700 mb-1">Condition</label>
+                    <select id="asset-condition"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="asset-maintenance-schedule"
+                        class="block text-sm font-medium text-gray-700 mb-1">Maintenance Schedule</label>
+                    <input type="text" id="asset-maintenance-schedule" placeholder="e.g., Monthly, Quarterly"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="asset-notes" class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                <textarea id="asset-notes" rows="3"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="asset-cancel-btn"
+                    class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg">Cancel</button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Asset Transfer Modal -->
+<div id="asset-transfer-modal" class="modal">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
+        <div class="px-6 py-4 border-b">
+            <h3 class="text-lg font-semibold text-gray-800">Transfer Asset</h3>
+        </div>
+        <form id="asset-transfer-form" class="px-6 py-4">
+            <div class="mb-4">
+                <label for="transfer-to-facility" class="block text-sm font-medium text-gray-700 mb-1">To
+                    Facility</label>
+                <select id="transfer-to-facility"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Facility</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="transfer-to-employee" class="block text-sm font-medium text-gray-700 mb-1">To
+                    Employee</label>
+                <select id="transfer-to-employee"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Employee</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="transfer-reason" class="block text-sm font-medium text-gray-700 mb-1">Reason</label>
+                <textarea id="transfer-reason" rows="3"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="transfer-cancel-btn"
+                    class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg">Cancel</button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Transfer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Asset Maintenance Modal -->
+<div id="asset-maintenance-modal" class="modal">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+        <div class="px-6 py-4 border-b flex justify-between items-center">
+            <h3 id="asset-maintenance-modal-title" class="text-lg font-semibold text-gray-800">Maintenance History</h3>
+            <button id="maintenance-close-btn" class="text-gray-400 hover:text-gray-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="px-6 py-4">
+            <div class="mb-4">
+                <button type="button" id="add-maintenance-btn"
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                    <i data-lucide="plus" class="w-4 h-4 inline mr-2"></i>
+                    Add Maintenance Record
+                </button>
+            </div>
+            <div id="maintenance-form" class="hidden mb-4 p-4 bg-gray-50 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="maintenance-type" class="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                        <input type="text" id="maintenance-type" placeholder="e.g., Repair, Inspection"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="maintenance-cost" class="block text-sm font-medium text-gray-700 mb-1">Cost</label>
+                        <input type="number" id="maintenance-cost" step="0.01" min="0"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="maintenance-description"
+                        class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <textarea id="maintenance-description" rows="2"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="maintenance-date" class="block text-sm font-medium text-gray-700 mb-1">Date
+                            Performed</label>
+                        <input type="date" id="maintenance-date"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="maintenance-next-due" class="block text-sm font-medium text-gray-700 mb-1">Next Due
+                            Date</label>
+                        <input type="date" id="maintenance-next-due"
+                            class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div class="flex justify-end space-x-2">
+                    <button type="button" id="cancel-maintenance-btn"
+                        class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg">Cancel</button>
+                    <button type="button" id="save-maintenance-btn"
+                        class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Save</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Cost</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Next Due</th>
+                        </tr>
+                    </thead>
+                    <tbody id="maintenance-tbody" class="bg-white divide-y divide-gray-200">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Facility Modal -->
+<div id="facility-modal" class="modal">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+        <div class="px-6 py-4 border-b">
+            <h3 id="facility-modal-title" class="text-lg font-semibold text-gray-800">Add Facility</h3>
+        </div>
+        <form id="facility-form" class="px-6 py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="facility-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" id="facility-name" required
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="facility-type" class="block text-sm font-medium text-gray-700 mb-1">Type</label>
+                    <input type="text" id="facility-type"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="facility-location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                <input type="text" id="facility-location"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label for="facility-capacity" class="block text-sm font-medium text-gray-700 mb-1">Capacity</label>
+                    <input type="number" id="facility-capacity" min="0"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="facility-status" class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                    <select id="facility-status"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="maintenance">Maintenance</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="facility-manager" class="block text-sm font-medium text-gray-700 mb-1">Manager</label>
+                <select id="facility-manager"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Manager</option>
+                </select>
+            </div>
+            <div class="flex justify-end space-x-2">
+                <button type="button" id="facility-cancel-btn"
+                    class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg">Cancel</button>
+                <button type="submit"
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Facility Employees Modal -->
+<div id="facility-employees-modal" class="modal">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+        <div class="px-6 py-4 border-b flex justify-between items-center">
+            <h3 id="facility-employees-modal-title" class="text-lg font-semibold text-gray-800">Manage Employees</h3>
+            <button id="facility-employees-close-btn" class="text-gray-400 hover:text-gray-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="px-6 py-4">
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Add Employee</label>
+                <div class="flex gap-2">
+                    <select id="facility-employee-select"
+                        class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select Employee</option>
+                    </select>
+                    <input type="text" id="facility-employee-role" placeholder="Role"
+                        class="w-32 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="button" id="add-facility-employee-btn"
+                        class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Add</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Employee</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Assigned</th>
+                            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="facility-employees-tbody" class="bg-white divide-y divide-gray-200">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -1592,7 +2215,13 @@
     let currentEditingProductId = null;
     let currentEditingServiceId = null;
     let currentEditingEmployeeId = null;
+    let currentEditingCustomerId = null;
+    let currentEditingFacilityId = null;
+    let currentEditingAssetId = null;
+    let currentFacilityId = null;
+    let currentAssetId = null;
     let billItemType = null; // 'product' or 'service'
+    const version = '8.4.4';
 
     // Initialize the app
     document.addEventListener('DOMContentLoaded', async () => {
@@ -1830,6 +2459,98 @@
 
         document.getElementById('employee-prev-page').addEventListener('click', () => changePage('employee', -1));
         document.getElementById('employee-next-page').addEventListener('click', () => changePage('employee', 1));
+
+        document.getElementById('customer-prev-page').addEventListener('click', () => changePage('customer', -1));
+        document.getElementById('customer-next-page').addEventListener('click', () => changePage('customer', 1));
+
+        // Customer modal
+        document.getElementById('add-customer-btn').addEventListener('click', () => {
+            currentEditingCustomerId = null;
+            document.getElementById('customer-modal-title').textContent = 'Add Customer';
+            document.getElementById('customer-form').reset();
+            document.getElementById('customer-modal').classList.add('active');
+        });
+
+        document.getElementById('customer-cancel-btn').addEventListener('click', () => {
+            document.getElementById('customer-modal').classList.remove('active');
+        });
+
+        document.getElementById('customer-form').addEventListener('submit', handleCustomerSubmit);
+        document.getElementById('customer-search').addEventListener('input', () => loadCustomersPage());
+
+        // Facility modal
+        document.getElementById('add-facility-btn').addEventListener('click', () => {
+            currentEditingFacilityId = null;
+            document.getElementById('facility-modal-title').textContent = 'Add Facility';
+            document.getElementById('facility-form').reset();
+            loadManagers();
+            document.getElementById('facility-modal').classList.add('active');
+        });
+
+        document.getElementById('facility-cancel-btn').addEventListener('click', () => {
+            document.getElementById('facility-modal').classList.remove('active');
+        });
+
+        document.getElementById('facility-form').addEventListener('submit', handleFacilitySubmit);
+        document.getElementById('facility-search').addEventListener('input', () => loadFacilities());
+        document.getElementById('facility-status-filter').addEventListener('change', () => loadFacilities());
+
+        // Facility employees modal
+        document.getElementById('facility-employees-close-btn').addEventListener('click', () => {
+            document.getElementById('facility-employees-modal').classList.remove('active');
+        });
+
+        document.getElementById('add-facility-employee-btn').addEventListener('click', handleAddFacilityEmployee);
+
+        // Asset modal
+        document.getElementById('add-asset-btn').addEventListener('click', () => {
+            currentEditingAssetId = null;
+            document.getElementById('asset-modal-title').textContent = 'Add Asset';
+            document.getElementById('asset-form').reset();
+            loadAssetFacilities();
+            loadAssetEmployees();
+            document.getElementById('asset-modal').classList.add('active');
+        });
+
+        document.getElementById('asset-close-btn').addEventListener('click', () => {
+            document.getElementById('asset-modal').classList.remove('active');
+        });
+
+        document.getElementById('asset-cancel-btn').addEventListener('click', () => {
+            document.getElementById('asset-modal').classList.remove('active');
+        });
+
+        document.getElementById('asset-form').addEventListener('submit', handleAssetSubmit);
+        document.getElementById('asset-search').addEventListener('input', () => loadAssets());
+        document.getElementById('asset-category-filter').addEventListener('change', () => loadAssets());
+        document.getElementById('asset-status-filter').addEventListener('change', () => loadAssets());
+        document.getElementById('asset-facility-filter').addEventListener('change', () => loadAssets());
+
+        // Asset transfer modal
+        document.getElementById('transfer-cancel-btn').addEventListener('click', () => {
+            document.getElementById('asset-transfer-modal').classList.remove('active');
+        });
+
+        document.getElementById('asset-transfer-form').addEventListener('submit', handleAssetTransfer);
+
+        // Asset maintenance modal
+        document.getElementById('maintenance-close-btn').addEventListener('click', () => {
+            document.getElementById('asset-maintenance-modal').classList.remove('active');
+        });
+
+        document.getElementById('add-maintenance-btn').addEventListener('click', () => {
+            document.getElementById('maintenance-form').classList.remove('hidden');
+        });
+
+        document.getElementById('cancel-maintenance-btn').addEventListener('click', () => {
+            document.getElementById('maintenance-form').classList.add('hidden');
+        });
+
+        document.getElementById('save-maintenance-btn').addEventListener('click', handleAddMaintenance);
+
+        // Pagination
+        document.getElementById('asset-prev-page').addEventListener('click', () => changePage('asset', -1));
+        document.getElementById('asset-next-page').addEventListener('click', () => changePage('asset', 1));
     }
 
     // Authentication functions
@@ -1981,6 +2702,16 @@
                 break;
             case 'employees':
                 await loadEmployees();
+                break;
+            case 'customers':
+                await loadCustomersPage();
+                break;
+            case 'facilities':
+                await loadFacilities();
+                break;
+            case 'assets':
+                await loadAssets();
+                await loadAssetFacilityFilter();
                 break;
             case 'pos':
                 await loadPOSItems('product');
@@ -4017,6 +4748,962 @@
         }
     }
 
+    // Customer functions
+    async function loadCustomersPage(page = 1, limit = 10) {
+        try {
+            const search = document.getElementById('customer-search').value;
+
+            let query = supabaseClient
+                .from('customers')
+                .select('*', { count: 'exact' })
+                .order('created_at', { ascending: false })
+                .range((page - 1) * limit, page * limit - 1);
+
+            if (search) {
+                query = query.or(`name.ilike.%${search}%,email.ilike.%${search}%,phone.ilike.%${search}%`);
+            }
+
+            const { data, error, count } = await query;
+
+            if (error) throw error;
+
+            const customersTableBody = document.getElementById('customers-table-body');
+            customersTableBody.innerHTML = '';
+
+            data.forEach(customer => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <div class="h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold">
+                                    ${customer.name.charAt(0).toUpperCase()}
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">${customer.name}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${customer.email || '-'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${customer.phone || '-'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${customer.address || '-'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 mr-3 edit-customer-btn" data-id="${customer.id}">Edit</button>
+                        <button class="text-red-600 hover:text-red-900 delete-customer-btn" data-id="${customer.id}">Delete</button>
+                    </td>
+                `;
+                customersTableBody.appendChild(row);
+            });
+
+            document.getElementById('customer-showing-start').textContent = count > 0 ? (page - 1) * limit + 1 : 0;
+            document.getElementById('customer-showing-end').textContent = Math.min(page * limit, count || 0);
+            document.getElementById('customer-total-count').textContent = count || 0;
+
+            document.getElementById('customer-prev-page').disabled = page === 1;
+            document.getElementById('customer-next-page').disabled = page * limit >= (count || 0);
+
+            document.querySelectorAll('.edit-customer-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => editCustomer(e.target.getAttribute('data-id')));
+            });
+
+            document.querySelectorAll('.delete-customer-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => deleteCustomer(e.target.getAttribute('data-id')));
+            });
+        } catch (error) {
+            console.error('Error loading customers:', error);
+            showNotification('Error loading customers', 'error');
+        }
+    }
+
+    async function editCustomer(customerId) {
+        try {
+            const { data, error } = await supabaseClient
+                .from('customers')
+                .select('*')
+                .eq('id', customerId)
+                .single();
+
+            if (error) throw error;
+
+            document.getElementById('customer-name').value = data.name;
+            document.getElementById('customer-email').value = data.email || '';
+            document.getElementById('customer-phone').value = data.phone || '';
+            document.getElementById('customer-address').value = data.address || '';
+
+            currentEditingCustomerId = customerId;
+            document.getElementById('customer-modal-title').textContent = 'Edit Customer';
+            document.getElementById('customer-modal').classList.add('active');
+        } catch (error) {
+            console.error('Error loading customer:', error);
+            showNotification('Error loading customer', 'error');
+        }
+    }
+
+    async function deleteCustomer(customerId) {
+        if (!confirm('Are you sure you want to delete this customer?')) return;
+
+        try {
+            const { error } = await supabaseClient
+                .from('customers')
+                .delete()
+                .eq('id', customerId);
+
+            if (error) throw error;
+
+            showNotification('Customer deleted successfully', 'success');
+            loadCustomersPage();
+        } catch (error) {
+            console.error('Error deleting customer:', error);
+            showNotification('Error deleting customer', 'error');
+        }
+    }
+
+    async function handleCustomerSubmit(e) {
+        e.preventDefault();
+
+        const customerData = {
+            name: document.getElementById('customer-name').value,
+            email: document.getElementById('customer-email').value,
+            phone: document.getElementById('customer-phone').value,
+            address: document.getElementById('customer-address').value
+        };
+
+        try {
+            let result;
+
+            if (currentEditingCustomerId) {
+                result = await supabaseClient
+                    .from('customers')
+                    .update(customerData)
+                    .eq('id', currentEditingCustomerId);
+            } else {
+                result = await supabaseClient
+                    .from('customers')
+                    .insert(customerData);
+            }
+
+            if (result.error) throw result.error;
+
+            showNotification(`Customer ${currentEditingCustomerId ? 'updated' : 'created'} successfully`, 'success');
+            document.getElementById('customer-modal').classList.remove('active');
+            loadCustomersPage();
+        } catch (error) {
+            console.error('Error saving customer:', error);
+            showNotification('Error saving customer', 'error');
+        }
+    }
+
+    // Facility functions
+    async function loadFacilities() {
+        try {
+            const search = document.getElementById('facility-search').value;
+            const status = document.getElementById('facility-status-filter').value;
+
+            let query = supabaseClient
+                .from('facilities')
+                .select('*, profiles!facilities_manager_id_fkey(full_name)')
+                .order('created_at', { ascending: false });
+
+            if (search) {
+                query = query.ilike('name', `%${search}%`);
+            }
+
+            if (status) {
+                query = query.eq('status', status);
+            }
+
+            const { data, error } = await query;
+
+            if (error) throw error;
+
+            const facilitiesGrid = document.getElementById('facilities-grid');
+            facilitiesGrid.innerHTML = '';
+
+            data.forEach(facility => {
+                const statusColor = facility.status === 'active' ? 'green' : facility.status === 'maintenance' ? 'yellow' : 'gray';
+                const managerName = facility.profiles ? facility.profiles.full_name : 'No Manager';
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow';
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">${facility.name}</h3>
+                            <p class="text-sm text-gray-500">${facility.type || 'N/A'}</p>
+                        </div>
+                        <span class="px-2 py-1 text-xs rounded-full bg-${statusColor}-100 text-${statusColor}-800">${facility.status}</span>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                            ${facility.location || 'No location'}
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i data-lucide="users" class="w-4 h-4 mr-2"></i>
+                            Capacity: ${facility.capacity || 'N/A'}
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600">
+                            <i data-lucide="user" class="w-4 h-4 mr-2"></i>
+                            Manager: ${managerName}
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded text-sm manage-employees-btn" data-id="${facility.id}">
+                            <i data-lucide="users" class="w-4 h-4 inline mr-1"></i>
+                            Employees
+                        </button>
+                        <button class="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-sm edit-facility-btn" data-id="${facility.id}">
+                            <i data-lucide="edit" class="w-4 h-4"></i>
+                        </button>
+                        <button class="px-3 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded text-sm delete-facility-btn" data-id="${facility.id}">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+
+                facilitiesGrid.appendChild(card);
+            });
+
+            document.querySelectorAll('.edit-facility-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => editFacility(e.currentTarget.getAttribute('data-id')));
+            });
+
+            document.querySelectorAll('.delete-facility-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => deleteFacility(e.currentTarget.getAttribute('data-id')));
+            });
+
+            document.querySelectorAll('.manage-employees-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => manageFacilityEmployees(e.currentTarget.getAttribute('data-id')));
+            });
+
+            lucide.createIcons();
+        } catch (error) {
+            console.error('Error loading facilities:', error);
+            showNotification('Error loading facilities', 'error');
+        }
+    }
+
+    async function loadManagers() {
+        try {
+            const { data, error } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .in('role', ['admin', 'manager'])
+                .order('full_name', { ascending: true });
+
+            if (error) throw error;
+
+            const managerSelect = document.getElementById('facility-manager');
+            managerSelect.innerHTML = '<option value="">Select Manager</option>';
+
+            data.forEach(manager => {
+                const option = document.createElement('option');
+                option.value = manager.id;
+                option.textContent = manager.full_name || manager.email;
+                managerSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error loading managers:', error);
+        }
+    }
+
+    async function editFacility(facilityId) {
+        try {
+            const { data, error } = await supabaseClient
+                .from('facilities')
+                .select('*')
+                .eq('id', facilityId)
+                .single();
+
+            if (error) throw error;
+
+            document.getElementById('facility-name').value = data.name;
+            document.getElementById('facility-type').value = data.type || '';
+            document.getElementById('facility-location').value = data.location || '';
+            document.getElementById('facility-capacity').value = data.capacity || '';
+            document.getElementById('facility-status').value = data.status;
+            document.getElementById('facility-manager').value = data.manager_id || '';
+
+            currentEditingFacilityId = facilityId;
+            document.getElementById('facility-modal-title').textContent = 'Edit Facility';
+            await loadManagers();
+            document.getElementById('facility-manager').value = data.manager_id || '';
+            document.getElementById('facility-modal').classList.add('active');
+        } catch (error) {
+            console.error('Error loading facility:', error);
+            showNotification('Error loading facility', 'error');
+        }
+    }
+
+    async function deleteFacility(facilityId) {
+        if (!confirm('Are you sure you want to delete this facility?')) return;
+
+        try {
+            const { error } = await supabaseClient
+                .from('facilities')
+                .delete()
+                .eq('id', facilityId);
+
+            if (error) throw error;
+
+            showNotification('Facility deleted successfully', 'success');
+            loadFacilities();
+        } catch (error) {
+            console.error('Error deleting facility:', error);
+            showNotification('Error deleting facility', 'error');
+        }
+    }
+
+    async function handleFacilitySubmit(e) {
+        e.preventDefault();
+
+        const facilityData = {
+            name: document.getElementById('facility-name').value,
+            type: document.getElementById('facility-type').value,
+            location: document.getElementById('facility-location').value,
+            capacity: parseInt(document.getElementById('facility-capacity').value) || null,
+            status: document.getElementById('facility-status').value,
+            manager_id: document.getElementById('facility-manager').value || null
+        };
+
+        try {
+            let result;
+
+            if (currentEditingFacilityId) {
+                result = await supabaseClient
+                    .from('facilities')
+                    .update(facilityData)
+                    .eq('id', currentEditingFacilityId);
+            } else {
+                result = await supabaseClient
+                    .from('facilities')
+                    .insert(facilityData);
+            }
+
+            if (result.error) throw result.error;
+
+            showNotification(`Facility ${currentEditingFacilityId ? 'updated' : 'created'} successfully`, 'success');
+            document.getElementById('facility-modal').classList.remove('active');
+            loadFacilities();
+        } catch (error) {
+            console.error('Error saving facility:', error);
+            showNotification('Error saving facility', 'error');
+        }
+    }
+
+    async function manageFacilityEmployees(facilityId) {
+        currentFacilityId = facilityId;
+
+        try {
+            const { data: facility, error: facilityError } = await supabaseClient
+                .from('facilities')
+                .select('name')
+                .eq('id', facilityId)
+                .single();
+
+            if (facilityError) throw facilityError;
+
+            document.getElementById('facility-employees-modal-title').textContent = `Manage Employees - ${facility.name}`;
+
+            await loadAvailableEmployees();
+            await loadFacilityEmployees(facilityId);
+
+            document.getElementById('facility-employees-modal').classList.add('active');
+        } catch (error) {
+            console.error('Error loading facility:', error);
+            showNotification('Error loading facility', 'error');
+        }
+    }
+
+    async function loadAvailableEmployees() {
+        try {
+            const { data, error } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .order('full_name', { ascending: true });
+
+            if (error) throw error;
+
+            const employeeSelect = document.getElementById('facility-employee-select');
+            employeeSelect.innerHTML = '<option value="">Select Employee</option>';
+
+            data.forEach(employee => {
+                const option = document.createElement('option');
+                option.value = employee.id;
+                option.textContent = employee.full_name || employee.email;
+                employeeSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error loading employees:', error);
+        }
+    }
+
+    async function loadFacilityEmployees(facilityId) {
+        try {
+            const { data, error } = await supabaseClient
+                .from('facility_employees')
+                .select('*, profiles(full_name, email)')
+                .eq('facility_id', facilityId)
+                .order('assigned_at', { ascending: false });
+
+            if (error) throw error;
+
+            const tbody = document.getElementById('facility-employees-tbody');
+            tbody.innerHTML = '';
+
+            data.forEach(assignment => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-4 py-2 text-sm text-gray-900">${assignment.profiles.full_name || assignment.profiles.email}</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">${assignment.role || 'N/A'}</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">${new Date(assignment.assigned_at).toLocaleDateString()}</td>
+                    <td class="px-4 py-2">
+                        <button class="text-red-600 hover:text-red-900 remove-facility-employee-btn" data-id="${assignment.id}">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            document.querySelectorAll('.remove-facility-employee-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => removeFacilityEmployee(e.currentTarget.getAttribute('data-id')));
+            });
+
+            lucide.createIcons();
+        } catch (error) {
+            console.error('Error loading facility employees:', error);
+        }
+    }
+
+    async function handleAddFacilityEmployee() {
+        const employeeId = document.getElementById('facility-employee-select').value;
+        const role = document.getElementById('facility-employee-role').value;
+
+        if (!employeeId) {
+            showNotification('Please select an employee', 'error');
+            return;
+        }
+
+        try {
+            const { error } = await supabaseClient
+                .from('facility_employees')
+                .insert({
+                    facility_id: currentFacilityId,
+                    employee_id: employeeId,
+                    role: role
+                });
+
+            if (error) throw error;
+
+            showNotification('Employee assigned successfully', 'success');
+            document.getElementById('facility-employee-select').value = '';
+            document.getElementById('facility-employee-role').value = '';
+            loadFacilityEmployees(currentFacilityId);
+        } catch (error) {
+            console.error('Error assigning employee:', error);
+            if (error.code === '23505') {
+                showNotification('Employee already assigned to this facility', 'error');
+            } else {
+                showNotification('Error assigning employee', 'error');
+            }
+        }
+    }
+
+    async function removeFacilityEmployee(assignmentId) {
+        if (!confirm('Remove this employee from the facility?')) return;
+
+        try {
+            const { error } = await supabaseClient
+                .from('facility_employees')
+                .delete()
+                .eq('id', assignmentId);
+
+            if (error) throw error;
+
+            showNotification('Employee removed successfully', 'success');
+            loadFacilityEmployees(currentFacilityId);
+        } catch (error) {
+            console.error('Error removing employee:', error);
+            showNotification('Error removing employee', 'error');
+        }
+    }
+
+    // Asset functions
+    async function loadAssets(page = 1, limit = 10) {
+        try {
+            const search = document.getElementById('asset-search').value;
+            const category = document.getElementById('asset-category-filter').value;
+            const status = document.getElementById('asset-status-filter').value;
+            const facilityId = document.getElementById('asset-facility-filter').value;
+
+            let query = supabaseClient
+                .from('assets')
+                .select('*, facilities(name), profiles!assets_assigned_to_fkey(full_name)', { count: 'exact' })
+                .order('created_at', { ascending: false })
+                .range((page - 1) * limit, page * limit - 1);
+
+            if (search) {
+                query = query.or(`name.ilike.%${search}%,asset_tag.ilike.%${search}%`);
+            }
+
+            if (category) {
+                query = query.eq('category', category);
+            }
+
+            if (status) {
+                query = query.eq('status', status);
+            }
+
+            if (facilityId) {
+                query = query.eq('facility_id', facilityId);
+            }
+
+            const { data, error, count } = await query;
+
+            if (error) throw error;
+
+            const assetsTableBody = document.getElementById('assets-table-body');
+            assetsTableBody.innerHTML = '';
+
+            data.forEach(asset => {
+                const statusColor = asset.status === 'active' ? 'green' : asset.status === 'maintenance' ? 'yellow' : 'gray';
+                const facilityName = asset.facilities ? asset.facilities.name : 'No Facility';
+                const assignedTo = asset.profiles ? asset.profiles.full_name : 'Not Assigned';
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${asset.name}</div>
+                        <div class="text-sm text-gray-500">${asset.description || ''}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${asset.asset_tag}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${asset.category || 'N/A'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${facilityName}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${assignedTo}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs rounded-full bg-${statusColor}-100 text-${statusColor}-800">${asset.status}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$${asset.current_value ? parseFloat(asset.current_value).toFixed(2) : '0.00'}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 mr-2 edit-asset-btn" data-id="${asset.id}" title="Edit">
+                            <i data-lucide="edit" class="w-4 h-4"></i>
+                        </button>
+                        <button class="text-green-600 hover:text-green-900 mr-2 transfer-asset-btn" data-id="${asset.id}" title="Transfer">
+                            <i data-lucide="arrow-right-left" class="w-4 h-4"></i>
+                        </button>
+                        <button class="text-purple-600 hover:text-purple-900 mr-2 maintenance-asset-btn" data-id="${asset.id}" title="Maintenance">
+                            <i data-lucide="wrench" class="w-4 h-4"></i>
+                        </button>
+                        <button class="text-red-600 hover:text-red-900 delete-asset-btn" data-id="${asset.id}" title="Delete">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </td>
+                `;
+                assetsTableBody.appendChild(row);
+            });
+
+            document.getElementById('asset-showing-start').textContent = count > 0 ? (page - 1) * limit + 1 : 0;
+            document.getElementById('asset-showing-end').textContent = Math.min(page * limit, count || 0);
+            document.getElementById('asset-total-count').textContent = count || 0;
+
+            document.getElementById('asset-prev-page').disabled = page === 1;
+            document.getElementById('asset-next-page').disabled = page * limit >= (count || 0);
+
+            document.querySelectorAll('.edit-asset-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => editAsset(e.currentTarget.getAttribute('data-id')));
+            });
+
+            document.querySelectorAll('.delete-asset-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => deleteAsset(e.currentTarget.getAttribute('data-id')));
+            });
+
+            document.querySelectorAll('.transfer-asset-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => openTransferModal(e.currentTarget.getAttribute('data-id')));
+            });
+
+            document.querySelectorAll('.maintenance-asset-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => openMaintenanceModal(e.currentTarget.getAttribute('data-id')));
+            });
+
+            lucide.createIcons();
+        } catch (error) {
+            console.error('Error loading assets:', error);
+            showNotification('Error loading assets', 'error');
+        }
+    }
+
+    async function loadAssetFacilities() {
+        try {
+            const { data, error } = await supabaseClient
+                .from('facilities')
+                .select('*')
+                .order('name', { ascending: true });
+
+            if (error) throw error;
+
+            const facilitySelect = document.getElementById('asset-facility');
+            facilitySelect.innerHTML = '<option value="">No Facility</option>';
+
+            data.forEach(facility => {
+                const option = document.createElement('option');
+                option.value = facility.id;
+                option.textContent = facility.name;
+                facilitySelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error loading facilities:', error);
+        }
+    }
+
+    async function loadAssetFacilityFilter() {
+        try {
+            const { data, error } = await supabaseClient
+                .from('facilities')
+                .select('*')
+                .order('name', { ascending: true });
+
+            if (error) throw error;
+
+            const facilityFilter = document.getElementById('asset-facility-filter');
+            facilityFilter.innerHTML = '<option value="">All Facilities</option>';
+
+            data.forEach(facility => {
+                const option = document.createElement('option');
+                option.value = facility.id;
+                option.textContent = facility.name;
+                facilityFilter.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error loading facilities:', error);
+        }
+    }
+
+    async function loadAssetEmployees() {
+        try {
+            const { data, error } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .order('full_name', { ascending: true });
+
+            if (error) throw error;
+
+            const employeeSelect = document.getElementById('asset-assigned-to');
+            employeeSelect.innerHTML = '<option value="">Not Assigned</option>';
+
+            data.forEach(employee => {
+                const option = document.createElement('option');
+                option.value = employee.id;
+                option.textContent = employee.full_name || employee.email;
+                employeeSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error loading employees:', error);
+        }
+    }
+
+    async function editAsset(assetId) {
+        try {
+            const { data, error } = await supabaseClient
+                .from('assets')
+                .select('*')
+                .eq('id', assetId)
+                .single();
+
+            if (error) throw error;
+
+            document.getElementById('asset-name').value = data.name;
+            document.getElementById('asset-tag').value = data.asset_tag;
+            document.getElementById('asset-category').value = data.category || 'IT Equipment';
+            document.getElementById('asset-status').value = data.status;
+            document.getElementById('asset-description').value = data.description || '';
+            document.getElementById('asset-manufacturer').value = data.manufacturer || '';
+            document.getElementById('asset-model').value = data.model || '';
+            document.getElementById('asset-serial').value = data.serial_number || '';
+            document.getElementById('asset-facility').value = data.facility_id || '';
+            document.getElementById('asset-assigned-to').value = data.assigned_to || '';
+            document.getElementById('asset-purchase-date').value = data.purchase_date || '';
+            document.getElementById('asset-warranty-expiry').value = data.warranty_expiry || '';
+            document.getElementById('asset-purchase-cost').value = data.purchase_cost || '';
+            document.getElementById('asset-current-value').value = data.current_value || '';
+            document.getElementById('asset-condition').value = data.condition || 'good';
+            document.getElementById('asset-maintenance-schedule').value = data.maintenance_schedule || '';
+            document.getElementById('asset-notes').value = data.notes || '';
+
+            currentEditingAssetId = assetId;
+            document.getElementById('asset-modal-title').textContent = 'Edit Asset';
+            await loadAssetFacilities();
+            await loadAssetEmployees();
+            document.getElementById('asset-facility').value = data.facility_id || '';
+            document.getElementById('asset-assigned-to').value = data.assigned_to || '';
+            document.getElementById('asset-modal').classList.add('active');
+        } catch (error) {
+            console.error('Error loading asset:', error);
+            showNotification('Error loading asset', 'error');
+        }
+    }
+
+    async function deleteAsset(assetId) {
+        if (!confirm('Are you sure you want to delete this asset?')) return;
+
+        try {
+            const { error } = await supabaseClient
+                .from('assets')
+                .delete()
+                .eq('id', assetId);
+
+            if (error) throw error;
+
+            showNotification('Asset deleted successfully', 'success');
+            loadAssets();
+        } catch (error) {
+            console.error('Error deleting asset:', error);
+            showNotification('Error deleting asset', 'error');
+        }
+    }
+
+    async function handleAssetSubmit(e) {
+        e.preventDefault();
+
+        const assetData = {
+            name: document.getElementById('asset-name').value,
+            asset_tag: document.getElementById('asset-tag').value,
+            category: document.getElementById('asset-category').value,
+            status: document.getElementById('asset-status').value,
+            description: document.getElementById('asset-description').value,
+            manufacturer: document.getElementById('asset-manufacturer').value,
+            model: document.getElementById('asset-model').value,
+            serial_number: document.getElementById('asset-serial').value,
+            facility_id: document.getElementById('asset-facility').value || null,
+            assigned_to: document.getElementById('asset-assigned-to').value || null,
+            purchase_date: document.getElementById('asset-purchase-date').value || null,
+            warranty_expiry: document.getElementById('asset-warranty-expiry').value || null,
+            purchase_cost: parseFloat(document.getElementById('asset-purchase-cost').value) || null,
+            current_value: parseFloat(document.getElementById('asset-current-value').value) || null,
+            condition: document.getElementById('asset-condition').value,
+            maintenance_schedule: document.getElementById('asset-maintenance-schedule').value,
+            notes: document.getElementById('asset-notes').value
+        };
+
+        try {
+            let result;
+
+            if (currentEditingAssetId) {
+                result = await supabaseClient
+                    .from('assets')
+                    .update(assetData)
+                    .eq('id', currentEditingAssetId);
+            } else {
+                result = await supabaseClient
+                    .from('assets')
+                    .insert(assetData);
+            }
+
+            if (result.error) throw result.error;
+
+            showNotification(`Asset ${currentEditingAssetId ? 'updated' : 'created'} successfully`, 'success');
+            document.getElementById('asset-modal').classList.remove('active');
+            loadAssets();
+        } catch (error) {
+            console.error('Error saving asset:', error);
+            showNotification('Error saving asset', 'error');
+        }
+    }
+
+    async function openTransferModal(assetId) {
+        currentAssetId = assetId;
+
+        try {
+            const { data: facilities, error: facilityError } = await supabaseClient
+                .from('facilities')
+                .select('*')
+                .order('name', { ascending: true });
+
+            if (facilityError) throw facilityError;
+
+            const { data: employees, error: employeeError } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .order('full_name', { ascending: true });
+
+            if (employeeError) throw employeeError;
+
+            const facilitySelect = document.getElementById('transfer-to-facility');
+            facilitySelect.innerHTML = '<option value="">Select Facility</option>';
+            facilities.forEach(facility => {
+                const option = document.createElement('option');
+                option.value = facility.id;
+                option.textContent = facility.name;
+                facilitySelect.appendChild(option);
+            });
+
+            const employeeSelect = document.getElementById('transfer-to-employee');
+            employeeSelect.innerHTML = '<option value="">Select Employee</option>';
+            employees.forEach(employee => {
+                const option = document.createElement('option');
+                option.value = employee.id;
+                option.textContent = employee.full_name || employee.email;
+                employeeSelect.appendChild(option);
+            });
+
+            document.getElementById('asset-transfer-modal').classList.add('active');
+        } catch (error) {
+            console.error('Error loading transfer data:', error);
+            showNotification('Error loading transfer data', 'error');
+        }
+    }
+
+    async function handleAssetTransfer(e) {
+        e.preventDefault();
+
+        const toFacilityId = document.getElementById('transfer-to-facility').value || null;
+        const toEmployeeId = document.getElementById('transfer-to-employee').value || null;
+        const reason = document.getElementById('transfer-reason').value;
+
+        try {
+            const { data: asset, error: assetError } = await supabaseClient
+                .from('assets')
+                .select('facility_id, assigned_to')
+                .eq('id', currentAssetId)
+                .single();
+
+            if (assetError) throw assetError;
+
+            const { error: transferError } = await supabaseClient
+                .from('asset_transfers')
+                .insert({
+                    asset_id: currentAssetId,
+                    from_facility_id: asset.facility_id,
+                    to_facility_id: toFacilityId,
+                    from_employee_id: asset.assigned_to,
+                    to_employee_id: toEmployeeId,
+                    reason: reason,
+                    approved_by: currentUser.id
+                });
+
+            if (transferError) throw transferError;
+
+            const { error: updateError } = await supabaseClient
+                .from('assets')
+                .update({
+                    facility_id: toFacilityId,
+                    assigned_to: toEmployeeId
+                })
+                .eq('id', currentAssetId);
+
+            if (updateError) throw updateError;
+
+            showNotification('Asset transferred successfully', 'success');
+            document.getElementById('asset-transfer-modal').classList.remove('active');
+            document.getElementById('asset-transfer-form').reset();
+            loadAssets();
+        } catch (error) {
+            console.error('Error transferring asset:', error);
+            showNotification('Error transferring asset', 'error');
+        }
+    }
+
+    async function openMaintenanceModal(assetId) {
+        currentAssetId = assetId;
+
+        try {
+            const { data: asset, error: assetError } = await supabaseClient
+                .from('assets')
+                .select('name')
+                .eq('id', assetId)
+                .single();
+
+            if (assetError) throw assetError;
+
+            document.getElementById('asset-maintenance-modal-title').textContent = `Maintenance History - ${asset.name}`;
+            document.getElementById('maintenance-form').classList.add('hidden');
+
+            await loadMaintenanceHistory(assetId);
+
+            document.getElementById('asset-maintenance-modal').classList.add('active');
+        } catch (error) {
+            console.error('Error loading asset:', error);
+            showNotification('Error loading asset', 'error');
+        }
+    }
+
+    async function loadMaintenanceHistory(assetId) {
+        try {
+            const { data, error } = await supabaseClient
+                .from('asset_maintenance')
+                .select('*')
+                .eq('asset_id', assetId)
+                .order('performed_date', { ascending: false });
+
+            if (error) throw error;
+
+            const tbody = document.getElementById('maintenance-tbody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-4 text-center text-gray-500">No maintenance records</td></tr>';
+                return;
+            }
+
+            data.forEach(record => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-4 py-2 text-sm text-gray-900">${record.performed_date ? new Date(record.performed_date).toLocaleDateString() : 'N/A'}</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">${record.maintenance_type || 'N/A'}</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">${record.description || 'N/A'}</td>
+                    <td class="px-4 py-2 text-sm text-gray-900">$${record.cost ? parseFloat(record.cost).toFixed(2) : '0.00'}</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">${record.next_due_date ? new Date(record.next_due_date).toLocaleDateString() : 'N/A'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        } catch (error) {
+            console.error('Error loading maintenance history:', error);
+        }
+    }
+
+    async function handleAddMaintenance() {
+        const maintenanceData = {
+            asset_id: currentAssetId,
+            maintenance_type: document.getElementById('maintenance-type').value,
+            description: document.getElementById('maintenance-description').value,
+            cost: parseFloat(document.getElementById('maintenance-cost').value) || null,
+            performed_by: currentUser.id,
+            performed_date: document.getElementById('maintenance-date').value || null,
+            next_due_date: document.getElementById('maintenance-next-due').value || null
+        };
+
+        try {
+            const { error } = await supabaseClient
+                .from('asset_maintenance')
+                .insert(maintenanceData);
+
+            if (error) throw error;
+
+            const { error: updateError } = await supabaseClient
+                .from('assets')
+                .update({
+                    last_maintenance: maintenanceData.performed_date,
+                    next_maintenance: maintenanceData.next_due_date
+                })
+                .eq('id', currentAssetId);
+
+            if (updateError) throw updateError;
+
+            showNotification('Maintenance record added successfully', 'success');
+            document.getElementById('maintenance-form').classList.add('hidden');
+            document.getElementById('maintenance-type').value = '';
+            document.getElementById('maintenance-description').value = '';
+            document.getElementById('maintenance-cost').value = '';
+            document.getElementById('maintenance-date').value = '';
+            document.getElementById('maintenance-next-due').value = '';
+            loadMaintenanceHistory(currentAssetId);
+        } catch (error) {
+            console.error('Error adding maintenance record:', error);
+            showNotification('Error adding maintenance record', 'error');
+        }
+    }
+
     // Pagination
     function changePage(type, direction) {
         // This is a simplified pagination function
@@ -4030,6 +5717,10 @@
             loadBills();
         } else if (type === 'employee') {
             loadEmployees();
+        } else if (type === 'customer') {
+            loadCustomersPage();
+        } else if (type === 'asset') {
+            loadAssets();
         }
     }
 
