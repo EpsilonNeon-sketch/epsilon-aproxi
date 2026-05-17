@@ -15,8 +15,10 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f9ff; /* Sky-50 */
-            color: #1e293b; /* Slate-800 */
+            background-color: #f0f9ff;
+            /* Sky-50 */
+            color: #1e293b;
+            /* Slate-800 */
         }
 
         .glass {
@@ -33,13 +35,18 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0, transparent 50%), 
-                              radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.15) 0, transparent 50%),
-                              radial-gradient(at 100% 0%, rgba(224, 242, 254, 0.2) 0, transparent 50%);
+            background-image: radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.15) 0, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(224, 242, 254, 0.2) 0, transparent 50%);
         }
 
-        .page { display: none; }
-        .page.active { display: flex; }
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: flex;
+        }
 
         #authPage {
             position: fixed;
@@ -49,8 +56,13 @@
             justify-content: center;
         }
 
-        #dashboardPage { display: none; }
-        #dashboardPage.active { display: block; }
+        #dashboardPage {
+            display: none;
+        }
+
+        #dashboardPage.active {
+            display: block;
+        }
 
         .sidebar {
             position: fixed;
@@ -66,17 +78,22 @@
             overflow-y: auto;
         }
 
-        .sidebar.closed { transform: translateX(-100%); }
+        .sidebar.closed {
+            transform: translateX(-100%);
+        }
 
         .main-content {
             margin-left: 260px;
             transition: margin-left 0.3s ease;
             padding: 2rem;
-            height: calc(100vh - 0rem); /* Full height for POS */
+            height: calc(100vh - 0rem);
+            /* Full height for POS */
             overflow-y: auto;
         }
 
-        .main-content.expanded { margin-left: 0; }
+        .main-content.expanded {
+            margin-left: 0;
+        }
 
         .menu-toggle {
             position: fixed;
@@ -93,7 +110,9 @@
             box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
         }
 
-        .menu-toggle:hover { background: #0369a1; }
+        .menu-toggle:hover {
+            background: #0369a1;
+        }
 
         .sidebar-overlay {
             position: fixed;
@@ -103,7 +122,9 @@
             display: none;
         }
 
-        .sidebar-overlay.active { display: block; }
+        .sidebar-overlay.active {
+            display: block;
+        }
 
         .input-field {
             width: 100%;
@@ -126,11 +147,12 @@
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 1rem;
         }
-        
+
         .pos-card {
             cursor: pointer;
             transition: transform 0.1s, box-shadow 0.1s;
         }
+
         .pos-card:active {
             transform: scale(0.98);
         }
@@ -142,18 +164,53 @@
             font-size: 1.25rem;
             transition: all 0.1s;
         }
-        .calc-btn:hover { background-color: #f0f9ff; border-color: #0284c7; }
-        .calc-btn.op { background-color: #e0f2fe; color: #0369a1; font-weight: bold; }
-        .calc-btn.eq { background-color: #0284c7; color: white; border-color: #0284c7; }
-        .calc-btn.eq:hover { background-color: #0369a1; }
+
+        .calc-btn:hover {
+            background-color: #f0f9ff;
+            border-color: #0284c7;
+        }
+
+        .calc-btn.op {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-weight: bold;
+        }
+
+        .calc-btn.eq {
+            background-color: #0284c7;
+            color: white;
+            border-color: #0284c7;
+        }
+
+        .calc-btn.eq:hover {
+            background-color: #0369a1;
+        }
 
         @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { margin-left: 0; }
-            .pos-container { flex-direction: column-reverse; }
-            .pos-products { width: 100%; }
-            .pos-cart { width: 100%; height: 400px; }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .pos-container {
+                flex-direction: column-reverse;
+            }
+
+            .pos-products {
+                width: 100%;
+            }
+
+            .pos-cart {
+                width: 100%;
+                height: 400px;
+            }
         }
     </style>
 </head>
@@ -180,34 +237,59 @@
             </div>
 
             <nav class="space-y-2">
-                <button class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600" data-page="dashboard">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="dashboard">
                     <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
                     <span>Dashboard</span>
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600" data-page="operations">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="operations">
                     <i data-lucide="package" class="w-5 h-5"></i>
                     <span>Operations</span>
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600" data-page="pos">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="pos">
                     <i data-lucide="shopping-cart" class="w-5 h-5"></i>
                     <span>Point of Sale</span>
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600" data-page="staff">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="staff">
                     <i data-lucide="users" class="w-5 h-5"></i>
                     <span>Staff & HR</span>
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600" data-page="crm">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="crm">
                     <i data-lucide="briefcase" class="w-5 h-5"></i>
                     <span>CRM & Clients</span>
                 </button>
-                <button class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600" data-page="tools">
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="assets">
+                    <i data-lucide="hard-drive" class="w-5 h-5"></i>
+                    <span>Assets</span>
+                </button>
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="deliveries">
+                    <i data-lucide="truck" class="w-5 h-5"></i>
+                    <span>Deliveries</span>
+                </button>
+                <button
+                    class="nav-btn w-full flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 hover:text-sky-700 transition text-left text-gray-600"
+                    data-page="tools">
                     <i data-lucide="wrench" class="w-5 h-5"></i>
                     <span>Business Tools</span>
                 </button>
             </nav>
 
             <div class="mt-8 pt-8 border-t border-gray-200">
-                <button id="logoutBtn" class="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-left text-gray-600">
+                <button id="logoutBtn"
+                    class="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-left text-gray-600">
                     <i data-lucide="log-out" class="w-5 h-5"></i>
                     <span>Logout</span>
                 </button>
@@ -220,26 +302,35 @@
         <div class="max-w-md w-full">
             <div class="glass p-8 rounded-2xl">
                 <div class="text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-sky-100 text-sky-600 mb-4">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-sky-100 text-sky-600 mb-4">
                         <i data-lucide="building-2" class="w-6 h-6"></i>
                     </div>
-                    <h1 class="text-3xl font-bold text-slate-800 mb-2">EPSILON<span class="text-sky-600"> AZURE</span></h1>
+                    <h1 class="text-3xl font-bold text-slate-800 mb-2">EPSILON<span class="text-sky-600"> AZURE</span>
+                    </h1>
                     <p class="text-slate-500 text-sm">Business Management for Kenya.</p>
                 </div>
 
                 <form id="loginForm" class="space-y-4">
                     <input id="loginEmail" type="email" placeholder="Email Address" class="input-field" required>
                     <input id="loginPassword" type="password" placeholder="Password" class="input-field" required>
-                    <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg transition shadow-md shadow-sky-200">Sign In</button>
-                    <p class="text-center text-sm text-slate-500 mt-4">Don't have an account? <a href="#" id="showSignup" class="text-sky-600 font-semibold hover:underline">Get Started</a></p>
+                    <button type="submit"
+                        class="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg transition shadow-md shadow-sky-200">Sign
+                        In</button>
+                    <p class="text-center text-sm text-slate-500 mt-4">Don't have an account? <a href="#"
+                            id="showSignup" class="text-sky-600 font-semibold hover:underline">Get Started</a></p>
                     <p id="loginError" class="text-red-500 text-sm text-center hidden"></p>
                 </form>
 
                 <form id="signupForm" class="space-y-4 hidden">
                     <input id="signupEmail" type="email" placeholder="Email Address" class="input-field" required>
-                    <input id="signupPassword" type="password" placeholder="Create Password" class="input-field" required>
-                    <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg transition shadow-md shadow-sky-200">Create Account</button>
-                    <p class="text-center text-sm text-slate-500 mt-4">Already have an account? <a href="#" id="showLogin" class="text-sky-600 font-semibold hover:underline">Sign In</a></p>
+                    <input id="signupPassword" type="password" placeholder="Create Password" class="input-field"
+                        required>
+                    <button type="submit"
+                        class="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg transition shadow-md shadow-sky-200">Create
+                        Account</button>
+                    <p class="text-center text-sm text-slate-500 mt-4">Already have an account? <a href="#"
+                            id="showLogin" class="text-sky-600 font-semibold hover:underline">Sign In</a></p>
                     <p id="signupError" class="text-red-500 text-sm text-center hidden"></p>
                 </form>
             </div>
@@ -251,30 +342,52 @@
         <div id="mainContent" class="main-content expanded">
             <header class="flex justify-between items-center mb-8">
                 <div>
-                    <h1 class="text-3xl font-bold text-slate-800">Hello, <span id="userNameDisplay">Partner</span> 👋</h1>
+                    <h1 class="text-3xl font-bold text-slate-800">Hello, <span id="userNameDisplay">Partner</span> 👋
+                    </h1>
                     <p class="text-slate-500">Here is your business overview.</p>
                 </div>
-                <div id="userAvatar" class="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-bold text-xl border-2 border-white shadow-sm"></div>
+                <div id="userAvatar"
+                    class="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-bold text-xl border-2 border-white shadow-sm">
+                </div>
             </header>
 
             <!-- DASHBOARD SECTION -->
             <div id="dashboardSection" class="section">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <div class="glass p-6 rounded-2xl flex items-center justify-between">
-                        <div><p class="text-slate-500 text-sm font-medium">Inventory</p><h3 id="statProducts" class="text-3xl font-bold text-slate-800 mt-1">0</h3></div>
-                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-sky-600"><i data-lucide="package" class="w-6 h-6"></i></div>
+                        <div>
+                            <p class="text-slate-500 text-sm font-medium">Inventory</p>
+                            <h3 id="statProducts" class="text-3xl font-bold text-slate-800 mt-1">0</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center text-sky-600"><i
+                                data-lucide="package" class="w-6 h-6"></i></div>
                     </div>
                     <div class="glass p-6 rounded-2xl flex items-center justify-between">
-                        <div><p class="text-slate-500 text-sm font-medium">Active Staff</p><h3 id="statStaff" class="text-3xl font-bold text-slate-800 mt-1">0</h3></div>
-                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600"><i data-lucide="users" class="w-6 h-6"></i></div>
+                        <div>
+                            <p class="text-slate-500 text-sm font-medium">Active Staff</p>
+                            <h3 id="statStaff" class="text-3xl font-bold text-slate-800 mt-1">0</h3>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
+                            <i data-lucide="users" class="w-6 h-6"></i></div>
                     </div>
                     <div class="glass p-6 rounded-2xl flex items-center justify-between">
-                        <div><p class="text-slate-500 text-sm font-medium">Clients</p><h3 id="statClients" class="text-3xl font-bold text-slate-800 mt-1">0</h3></div>
-                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600"><i data-lucide="briefcase" class="w-6 h-6"></i></div>
+                        <div>
+                            <p class="text-slate-500 text-sm font-medium">Clients</p>
+                            <h3 id="statClients" class="text-3xl font-bold text-slate-800 mt-1">0</h3>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i></div>
                     </div>
-                     <div class="glass p-6 rounded-2xl flex items-center justify-between">
-                        <div><p class="text-slate-500 text-sm font-medium">Est. Inveritory(both products and services) value</p><h3 id="statRevenue" class="text-3xl font-bold text-slate-800 mt-1">Ksh 0</h3></div>
-                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600"><i data-lucide="coins" class="w-6 h-6"></i></div>
+                    <div class="glass p-6 rounded-2xl flex items-center justify-between">
+                        <div>
+                            <p class="text-slate-500 text-sm font-medium">Est. Stock value</p>
+                            <h3 id="statRevenue" class="text-3xl font-bold text-slate-800 mt-1">Ksh 0</h3>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600">
+                            <i data-lucide="coins" class="w-6 h-6"></i></div>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -295,7 +408,8 @@
                     <!-- Product Grid -->
                     <div class="flex-1 flex flex-col glass rounded-2xl overflow-hidden">
                         <div class="p-4 border-b border-slate-100 flex gap-2">
-                            <input type="text" id="posSearch" oninput="loadPOSProducts()" placeholder="Search products..." class="input-field bg-white">
+                            <input type="text" id="posSearch" oninput="loadPOSProducts()"
+                                placeholder="Search products..." class="input-field bg-white">
                         </div>
                         <div id="posProductGrid" class="flex-1 overflow-y-auto p-4 pos-grid">
                             <!-- Products injected here -->
@@ -309,7 +423,7 @@
                                 <i data-lucide="shopping-bag" class="w-5 h-5"></i> Current Order
                             </h2>
                         </div>
-                        
+
                         <div id="posCartItems" class="flex-1 overflow-y-auto p-4 space-y-2">
                             <!-- Cart Items injected here -->
                             <div class="text-center text-slate-400 py-10">Cart is empty</div>
@@ -325,12 +439,14 @@
                                     <span>Tax (16%)</span>
                                     <span id="posTax">Ksh 0.00</span>
                                 </div>
-                                <div class="flex justify-between text-lg font-bold text-slate-800 border-t border-slate-200 pt-2">
+                                <div
+                                    class="flex justify-between text-lg font-bold text-slate-800 border-t border-slate-200 pt-2">
                                     <span>Total</span>
                                     <span id="posTotal">Ksh 0.00</span>
                                 </div>
                             </div>
-                            <button onclick="openCheckoutModal()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-lg shadow-lg flex justify-center items-center gap-2">
+                            <button onclick="openCheckoutModal()"
+                                class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-lg shadow-lg flex justify-center items-center gap-2">
                                 <i data-lucide="check-circle" class="w-5 h-5"></i> Checkout
                             </button>
                         </div>
@@ -352,14 +468,24 @@
                                         <option value="service">Service</option>
                                     </select>
                                 </div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Name</label><input id="prodName" type="text" placeholder="e.g. Consultation, Maize Flour" class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Name</label><input
+                                        id="prodName" type="text" placeholder="e.g. Consultation, Maize Flour"
+                                        class="input-field" required></div>
                                 <div>
                                     <label class="block text-sm font-medium text-slate-600 mb-1">Price (Ksh)</label>
-                                    <input id="prodPrice" type="number" step="0.01" placeholder="0.00" class="input-field" required>
+                                    <input id="prodPrice" type="number" step="0.01" placeholder="0.00"
+                                        class="input-field" required>
                                 </div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Stock / Capacity</label><input id="prodStock" type="text" placeholder="e.g. 50 units or 4 hrs/day" class="input-field"></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Description</label><textarea id="prodDesc" placeholder="Details..." class="input-field" rows="3"></textarea></div>
-                                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg transition">Add to Inventory</button>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Stock /
+                                        Capacity</label><input id="prodStock" type="text"
+                                        placeholder="e.g. 50 units or 4 hrs/day" class="input-field"></div>
+                                <div><label
+                                        class="block text-sm font-medium text-slate-600 mb-1">Description</label><textarea
+                                        id="prodDesc" placeholder="Details..." class="input-field" rows="3"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-3 rounded-lg transition">Add
+                                    to Inventory</button>
                             </form>
                         </div>
                     </div>
@@ -368,9 +494,12 @@
                             <div class="flex justify-between items-center mb-6">
                                 <h2 class="text-xl font-bold text-slate-800">Inventory & Services</h2>
                                 <div class="flex gap-2 text-sm">
-                                    <button id="filterAll" class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full font-medium">All</button>
-                                    <button id="filterProd" class="px-3 py-1 text-slate-500 hover:bg-slate-100 rounded-full">Products</button>
-                                    <button id="filterServ" class="px-3 py-1 text-slate-500 hover:bg-slate-100 rounded-full">Services</button>
+                                    <button id="filterAll"
+                                        class="px-3 py-1 bg-sky-100 text-sky-700 rounded-full font-medium">All</button>
+                                    <button id="filterProd"
+                                        class="px-3 py-1 text-slate-500 hover:bg-slate-100 rounded-full">Products</button>
+                                    <button id="filterServ"
+                                        class="px-3 py-1 text-slate-500 hover:bg-slate-100 rounded-full">Services</button>
                                 </div>
                             </div>
                             <div id="productsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
@@ -386,11 +515,21 @@
                         <div class="glass p-6 rounded-2xl sticky top-6">
                             <h2 class="text-xl font-bold text-slate-800 mb-4">Add Employee</h2>
                             <form id="staffForm" class="space-y-4">
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Full Name</label><input id="staffName" type="text" placeholder="John Doe" class="input-field" required></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Role</label><input id="staffRole" type="text" placeholder="e.g. Manager" class="input-field" required></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Email</label><input id="staffEmail" type="email" placeholder="john@company.com" class="input-field"></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Monthly Salary (Ksh)</label><input id="staffSalary" type="number" placeholder="0.00" class="input-field"></div>
-                                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-lg transition">Hire Employee</button>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Full
+                                        Name</label><input id="staffName" type="text" placeholder="John Doe"
+                                        class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Role</label><input
+                                        id="staffRole" type="text" placeholder="e.g. Manager" class="input-field"
+                                        required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Email</label><input
+                                        id="staffEmail" type="email" placeholder="john@company.com" class="input-field">
+                                </div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Monthly Salary
+                                        (Ksh)</label><input id="staffSalary" type="number" placeholder="0.00"
+                                        class="input-field"></div>
+                                <button type="submit"
+                                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-lg transition">Hire
+                                    Employee</button>
                             </form>
                         </div>
                     </div>
@@ -412,12 +551,22 @@
                         <div class="glass p-6 rounded-2xl sticky top-6">
                             <h2 class="text-xl font-bold text-slate-800 mb-4">New Client</h2>
                             <form id="clientForm" class="space-y-4">
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Company Name</label><input id="clientCompany" type="text" placeholder="Acme Corp" class="input-field" required></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Contact Name</label><input id="clientContact" type="text" placeholder="Jane Smith" class="input-field" required></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Email</label><input id="clientEmail" type="email" placeholder="jane@acme.com" class="input-field"></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Phone</label><input id="clientPhone" type="tel" placeholder="+254 7..." class="input-field"></div>
-                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Notes</label><textarea id="clientNotes" class="input-field" rows="2"></textarea></div>
-                                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 rounded-lg transition">Save Client</button>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Company
+                                        Name</label><input id="clientCompany" type="text" placeholder="Acme Corp"
+                                        class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Contact
+                                        Name</label><input id="clientContact" type="text" placeholder="Jane Smith"
+                                        class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Email</label><input
+                                        id="clientEmail" type="email" placeholder="jane@acme.com" class="input-field">
+                                </div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Phone</label><input
+                                        id="clientPhone" type="tel" placeholder="+254 7..." class="input-field"></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Notes</label><textarea
+                                        id="clientNotes" class="input-field" rows="2"></textarea></div>
+                                <button type="submit"
+                                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 rounded-lg transition">Save
+                                    Client</button>
                             </form>
                         </div>
                     </div>
@@ -430,6 +579,58 @@
                 </div>
             </div>
 
+            <!-- ASSETS SECTION -->
+            <div id="assetsSection" class="section hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div class="glass p-6 rounded-2xl sticky top-6">
+                            <h2 class="text-xl font-bold text-slate-800 mb-4">Add Asset</h2>
+                            <form id="assetForm" class="space-y-4">
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Asset Name</label><input id="assetName" type="text" placeholder="e.g. Laptop, Vehicle" class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Category</label><select id="assetCategory" class="input-field"><option value="Equipment">Equipment</option><option value="Vehicle">Vehicle</option><option value="Property">Property</option><option value="Electronics">Electronics</option><option value="Other">Other</option></select></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Value (Ksh)</label><input id="assetValue" type="number" step="0.01" placeholder="0.00" class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Purchase Date</label><input id="assetDate" type="date" class="input-field"></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Status</label><select id="assetStatus" class="input-field"><option value="Active">Active</option><option value="Maintenance">Maintenance</option><option value="Retired">Retired</option></select></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Notes</label><textarea id="assetNotes" class="input-field" rows="2"></textarea></div>
+                                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 rounded-lg transition">Add Asset</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="glass p-6 rounded-2xl min-h-[500px]">
+                            <h2 class="text-xl font-bold text-slate-800 mb-6">Asset Registry</h2>
+                            <div id="assetsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DELIVERIES SECTION -->
+            <div id="deliveriesSection" class="section hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div class="glass p-6 rounded-2xl sticky top-6">
+                            <h2 class="text-xl font-bold text-slate-800 mb-4">New Delivery</h2>
+                            <form id="deliveryForm" class="space-y-4">
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Tracking ID</label><input id="deliveryTracking" type="text" placeholder="e.g. DEL-001" class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Customer Name</label><input id="deliveryCustomer" type="text" placeholder="Customer Name" class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Destination</label><input id="deliveryDestination" type="text" placeholder="Delivery Address" class="input-field" required></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Status</label><select id="deliveryStatus" class="input-field"><option value="Pending">Pending</option><option value="In Transit">In Transit</option><option value="Delivered">Delivered</option><option value="Cancelled">Cancelled</option></select></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Delivery Date</label><input id="deliveryDate" type="date" class="input-field"></div>
+                                <div><label class="block text-sm font-medium text-slate-600 mb-1">Notes</label><textarea id="deliveryNotes" class="input-field" rows="2"></textarea></div>
+                                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 rounded-lg transition">Create Delivery</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="glass p-6 rounded-2xl min-h-[500px]">
+                            <h2 class="text-xl font-bold text-slate-800 mb-6">Delivery Tracking</h2>
+                            <div id="deliveriesList" class="space-y-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- TOOLS SECTION -->
             <div id="toolsSection" class="section hidden">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
@@ -437,9 +638,14 @@
                         <div class="glass p-6 rounded-2xl sticky top-6">
                             <h2 class="text-xl font-bold text-slate-800 mb-4">Business Tools</h2>
                             <div class="space-y-2">
-                                <button onclick="switchToolTab('calculator')" id="tab-calculator" class="w-full text-left p-3 rounded-lg bg-sky-50 text-sky-800 font-medium transition">Calculator</button>
-                                <button onclick="switchToolTab('invoice')" id="tab-invoice" class="w-full text-left p-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium transition">Invoice Generator</button>
-                                <button onclick="switchToolTab('metrics')" id="tab-metrics" class="w-full text-left p-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium transition">Metrics & ROI</button>
+                                <button onclick="switchToolTab('calculator')" id="tab-calculator"
+                                    class="w-full text-left p-3 rounded-lg bg-sky-50 text-sky-800 font-medium transition">Calculator</button>
+                                <button onclick="switchToolTab('invoice')" id="tab-invoice"
+                                    class="w-full text-left p-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium transition">Invoice
+                                    Generator</button>
+                                <button onclick="switchToolTab('metrics')" id="tab-metrics"
+                                    class="w-full text-left p-3 rounded-lg hover:bg-slate-50 text-slate-600 font-medium transition">Metrics
+                                    & ROI</button>
                             </div>
                         </div>
                     </div>
@@ -448,7 +654,8 @@
                         <div id="tool-calculator" class="glass p-6 rounded-2xl">
                             <h3 class="text-lg font-bold text-slate-800 mb-4">Standard Calculator</h3>
                             <div class="max-w-sm mx-auto">
-                                <input type="text" id="calcDisplay" readonly class="w-full text-right text-3xl p-4 mb-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800">
+                                <input type="text" id="calcDisplay" readonly
+                                    class="w-full text-right text-3xl p-4 mb-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-800">
                                 <div class="grid grid-cols-4 gap-2">
                                     <button onclick="clearCalc()" class="calc-btn p-4 text-red-500">C</button>
                                     <button onclick="appendCalc('/')" class="calc-btn op p-4">/</button>
@@ -465,7 +672,8 @@
                                     <button onclick="appendCalc('1')" class="calc-btn p-4">1</button>
                                     <button onclick="appendCalc('2')" class="calc-btn p-4">2</button>
                                     <button onclick="appendCalc('3')" class="calc-btn p-4">3</button>
-                                    <button onclick="calculateResult()" class="calc-btn eq p-4 row-span-2 flex items-center justify-center">=</button>
+                                    <button onclick="calculateResult()"
+                                        class="calc-btn eq p-4 row-span-2 flex items-center justify-center">=</button>
                                     <button onclick="appendCalc('0')" class="calc-btn p-4 col-span-2">0</button>
                                     <button onclick="appendCalc('.')" class="calc-btn p-4">.</button>
                                 </div>
@@ -477,23 +685,43 @@
                             <h3 class="text-lg font-bold text-slate-800 mb-4">Quick Invoice Generator</h3>
                             <div class="bg-slate-50 p-4 rounded-xl mb-4">
                                 <div class="grid grid-cols-2 gap-4 mb-4">
-                                    <div><label class="text-xs font-bold text-slate-500 uppercase">Client Name</label><input id="invClient" type="text" class="input-field bg-white" placeholder="Client Name"></div>
-                                    <div><label class="text-xs font-bold text-slate-500 uppercase">Date</label><input id="invDate" type="date" class="input-field bg-white"></div>
+                                    <div><label class="text-xs font-bold text-slate-500 uppercase">Client
+                                            Name</label><input id="invClient" type="text" class="input-field bg-white"
+                                            placeholder="Client Name"></div>
+                                    <div><label class="text-xs font-bold text-slate-500 uppercase">Date</label><input
+                                            id="invDate" type="date" class="input-field bg-white"></div>
                                 </div>
                                 <div id="invoiceItems">
                                     <div class="flex gap-2 mb-2">
-                                        <input type="text" placeholder="Item Name" class="inv-item input-field bg-white text-sm flex-1">
-                                        <input type="number" placeholder="Qty" class="inv-qty input-field bg-white text-sm w-20">
-                                        <input type="number" placeholder="Price (Ksh)" class="inv-price input-field bg-white text-sm w-24">
-                                        <button type="button" onclick="calculateInvoice()" class="bg-sky-600 text-white px-3 rounded hover:bg-sky-700">Add</button>
+                                        <input type="text" placeholder="Item Name"
+                                            class="inv-item input-field bg-white text-sm flex-1">
+                                        <input type="number" placeholder="Qty"
+                                            class="inv-qty input-field bg-white text-sm w-20">
+                                        <input type="number" placeholder="Price (Ksh)"
+                                            class="inv-price input-field bg-white text-sm w-24">
+                                        <button type="button" onclick="calculateInvoice()"
+                                            class="bg-sky-600 text-white px-3 rounded hover:bg-sky-700">Add</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="border-t border-slate-200 pt-4">
                                 <table class="w-full text-sm text-left">
-                                    <thead class="text-slate-500 border-b border-slate-200"><tr><th class="py-2">Item</th><th class="py-2">Qty</th><th class="py-2">Price</th><th class="py-2 text-right">Total</th></tr></thead>
+                                    <thead class="text-slate-500 border-b border-slate-200">
+                                        <tr>
+                                            <th class="py-2">Item</th>
+                                            <th class="py-2">Qty</th>
+                                            <th class="py-2">Price</th>
+                                            <th class="py-2 text-right">Total</th>
+                                        </tr>
+                                    </thead>
                                     <tbody id="invoiceTableBody" class="text-slate-700"></tbody>
-                                    <tfoot><tr><td colspan="3" class="text-right font-bold pt-4">Total Due:</td><td id="invTotal" class="text-right font-bold text-sky-600 pt-4 text-lg">Ksh 0.00</td></tr></tfoot>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" class="text-right font-bold pt-4">Total Due:</td>
+                                            <td id="invTotal" class="text-right font-bold text-sky-600 pt-4 text-lg">Ksh
+                                                0.00</td>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -505,17 +733,27 @@
                                 <div class="p-4 border border-slate-200 rounded-xl">
                                     <h4 class="font-semibold text-slate-700 mb-3">Return on Investment (ROI)</h4>
                                     <div class="space-y-3">
-                                        <input id="roiInvested" type="number" placeholder="Amount Invested (Ksh)" class="input-field" oninput="calcROI()">
-                                        <input id="roiReturned" type="number" placeholder="Amount Returned (Ksh)" class="input-field" oninput="calcROI()">
-                                        <div class="bg-sky-50 p-3 rounded-lg text-center"><p class="text-xs text-slate-500 uppercase">ROI Result</p><p id="roiResult" class="text-2xl font-bold text-sky-600">0%</p></div>
+                                        <input id="roiInvested" type="number" placeholder="Amount Invested (Ksh)"
+                                            class="input-field" oninput="calcROI()">
+                                        <input id="roiReturned" type="number" placeholder="Amount Returned (Ksh)"
+                                            class="input-field" oninput="calcROI()">
+                                        <div class="bg-sky-50 p-3 rounded-lg text-center">
+                                            <p class="text-xs text-slate-500 uppercase">ROI Result</p>
+                                            <p id="roiResult" class="text-2xl font-bold text-sky-600">0%</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="p-4 border border-slate-200 rounded-xl">
                                     <h4 class="font-semibold text-slate-700 mb-3">Profit Margin</h4>
                                     <div class="space-y-3">
-                                        <input id="marginCost" type="number" placeholder="Cost of Goods (Ksh)" class="input-field" oninput="calcMargin()">
-                                        <input id="marginRevenue" type="number" placeholder="Selling Price (Ksh)" class="input-field" oninput="calcMargin()">
-                                        <div class="bg-indigo-50 p-3 rounded-lg text-center"><p class="text-xs text-slate-500 uppercase">Margin</p><p id="marginResult" class="text-2xl font-bold text-indigo-600">0%</p></div>
+                                        <input id="marginCost" type="number" placeholder="Cost of Goods (Ksh)"
+                                            class="input-field" oninput="calcMargin()">
+                                        <input id="marginRevenue" type="number" placeholder="Selling Price (Ksh)"
+                                            class="input-field" oninput="calcMargin()">
+                                        <div class="bg-indigo-50 p-3 rounded-lg text-center">
+                                            <p class="text-xs text-slate-500 uppercase">Margin</p>
+                                            <p id="marginResult" class="text-2xl font-bold text-indigo-600">0%</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -529,7 +767,8 @@
     </div>
 
     <!-- Checkout Modal -->
-    <div id="checkoutModal" class="fixed inset-0 z-[300] hidden flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+    <div id="checkoutModal"
+        class="fixed inset-0 z-[300] hidden flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
         <div class="bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl">
             <h3 class="text-xl font-bold text-slate-800 mb-4">Checkout</h3>
             <div class="mb-4">
@@ -539,23 +778,32 @@
             <div class="mb-6">
                 <label class="block text-sm font-medium text-slate-700 mb-2">Payment Method</label>
                 <div class="grid grid-cols-3 gap-2">
-                    <button onclick="selectPayment('cash')" class="pay-method p-3 border rounded-lg text-center hover:bg-sky-50 hover:border-sky-500 transition" data-val="cash">
+                    <button onclick="selectPayment('cash')"
+                        class="pay-method p-3 border rounded-lg text-center hover:bg-sky-50 hover:border-sky-500 transition"
+                        data-val="cash">
                         <i data-lucide="banknote" class="w-6 h-6 mx-auto mb-1"></i>
                         <span class="text-xs font-bold">CASH</span>
                     </button>
-                    <button onclick="selectPayment('mpesa')" class="pay-method p-3 border rounded-lg text-center hover:bg-green-50 hover:border-green-500 transition" data-val="mpesa">
+                    <button onclick="selectPayment('mpesa')"
+                        class="pay-method p-3 border rounded-lg text-center hover:bg-green-50 hover:border-green-500 transition"
+                        data-val="mpesa">
                         <i data-lucide="smartphone" class="w-6 h-6 mx-auto mb-1"></i>
                         <span class="text-xs font-bold">M-PESA</span>
                     </button>
-                    <button onclick="selectPayment('card')" class="pay-method p-3 border rounded-lg text-center hover:bg-indigo-50 hover:border-indigo-500 transition" data-val="card">
+                    <button onclick="selectPayment('card')"
+                        class="pay-method p-3 border rounded-lg text-center hover:bg-indigo-50 hover:border-indigo-500 transition"
+                        data-val="card">
                         <i data-lucide="credit-card" class="w-6 h-6 mx-auto mb-1"></i>
                         <span class="text-xs font-bold">CARD</span>
                     </button>
                 </div>
             </div>
             <div class="flex gap-3">
-                <button onclick="closeCheckoutModal()" class="flex-1 bg-slate-100 text-slate-700 py-2 rounded-lg hover:bg-slate-200">Cancel</button>
-                <button onclick="finalizeSale()" class="flex-1 bg-sky-600 text-white py-2 rounded-lg hover:bg-sky-700 font-bold">Confirm Sale</button>
+                <button onclick="closeCheckoutModal()"
+                    class="flex-1 bg-slate-100 text-slate-700 py-2 rounded-lg hover:bg-slate-200">Cancel</button>
+                <button onclick="finalizeSale()"
+                    class="flex-1 bg-sky-600 text-white py-2 rounded-lg hover:bg-sky-700 font-bold">Confirm
+                    Sale</button>
             </div>
         </div>
     </div>
@@ -600,6 +848,8 @@
                 if (page === 'operations') loadProducts();
                 if (page === 'staff') loadStaff();
                 if (page === 'crm') loadClients();
+                if (page === 'assets') loadAssets();
+                if (page === 'deliveries') loadDeliveries();
                 if (page === 'pos') {
                     loadPOSProducts();
                     posCart = [];
@@ -613,11 +863,11 @@
             const search = document.getElementById('posSearch').value.toLowerCase();
             let query = supabaseClient.from('epsilon_products').select('*').eq('user_id', currentUser.id).order('name');
             const { data: prods } = await query;
-            
+
             const container = document.getElementById('posProductGrid');
             container.innerHTML = '';
 
-            if(!prods || prods.length === 0) {
+            if (!prods || prods.length === 0) {
                 container.innerHTML = '<p class="col-span-full text-center text-slate-400">No items found.</p>';
                 return;
             }
@@ -645,7 +895,7 @@
 
         function addToCart(product) {
             const existing = posCart.find(i => i.id === product.id);
-            if(existing) {
+            if (existing) {
                 existing.qty++;
             } else {
                 posCart.push({ ...product, qty: 1 });
@@ -655,9 +905,9 @@
 
         function updateQty(id, change) {
             const item = posCart.find(i => i.id === id);
-            if(item) {
+            if (item) {
                 item.qty += change;
-                if(item.qty <= 0) {
+                if (item.qty <= 0) {
                     posCart = posCart.filter(i => i.id !== id);
                 }
                 renderCart();
@@ -667,8 +917,8 @@
         function renderCart() {
             const container = document.getElementById('posCartItems');
             container.innerHTML = '';
-            
-            if(posCart.length === 0) {
+
+            if (posCart.length === 0) {
                 container.innerHTML = '<div class="text-center text-slate-400 py-10 flex flex-col items-center gap-2"><i data-lucide="shopping-cart" class="w-8 h-8 opacity-50"></i><p>Cart is empty</p></div>';
                 document.getElementById('posSubtotal').innerText = 'Ksh 0.00';
                 document.getElementById('posTax').innerText = 'Ksh 0.00';
@@ -700,14 +950,14 @@
             const tax = subtotal * 0.16;
             const total = subtotal + tax;
 
-            document.getElementById('posSubtotal').innerText = `Ksh ${subtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById('posTax').innerText = `Ksh ${tax.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById('posTotal').innerText = `Ksh ${total.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById('modalTotal').innerText = `Ksh ${total.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+            document.getElementById('posSubtotal').innerText = `Ksh ${subtotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+            document.getElementById('posTax').innerText = `Ksh ${tax.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+            document.getElementById('posTotal').innerText = `Ksh ${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+            document.getElementById('modalTotal').innerText = `Ksh ${total.toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
         }
 
         function openCheckoutModal() {
-            if(posCart.length === 0) return alert("Cart is empty!");
+            if (posCart.length === 0) return alert("Cart is empty!");
             document.getElementById('checkoutModal').classList.remove('hidden');
         }
         function closeCheckoutModal() {
@@ -724,8 +974,8 @@
         }
 
         async function finalizeSale() {
-            if(!selectedPaymentMethod) return alert("Please select a payment method");
-            
+            if (!selectedPaymentMethod) return alert("Please select a payment method");
+
             const total = parseFloat(document.getElementById('posTotal').innerText.replace('Ksh ', '').replace(/,/g, ''));
 
             const { error } = await supabaseClient.from('epsilon_sales').insert([{
@@ -735,7 +985,7 @@
                 payment_method: selectedPaymentMethod
             }]);
 
-            if(error) {
+            if (error) {
                 alert("Error processing sale: " + error.message);
             } else {
                 alert("Sale Completed Successfully!");
@@ -752,34 +1002,34 @@
         function deleteCalc() { calcExpression = calcExpression.slice(0, -1); display.value = calcExpression; }
         function calculateResult() { try { calcExpression = eval(calcExpression).toString(); display.value = calcExpression; } catch (e) { display.value = "Error"; calcExpression = ""; } }
 
-        function calcROI() { 
-            const inv = parseFloat(document.getElementById('roiInvested').value); 
-            const ret = parseFloat(document.getElementById('roiReturned').value); 
-            const res = document.getElementById('roiResult'); 
-            if(inv && ret) { 
-                const roi = ((ret - inv) / inv) * 100; 
-                res.innerText = roi.toFixed(2) + "%"; 
-                res.className = roi >= 0 ? "text-2xl font-bold text-emerald-600" : "text-2xl font-bold text-red-600"; 
-            } else { res.innerText = "0%"; } 
+        function calcROI() {
+            const inv = parseFloat(document.getElementById('roiInvested').value);
+            const ret = parseFloat(document.getElementById('roiReturned').value);
+            const res = document.getElementById('roiResult');
+            if (inv && ret) {
+                const roi = ((ret - inv) / inv) * 100;
+                res.innerText = roi.toFixed(2) + "%";
+                res.className = roi >= 0 ? "text-2xl font-bold text-emerald-600" : "text-2xl font-bold text-red-600";
+            } else { res.innerText = "0%"; }
         }
-        function calcMargin() { 
-            const cost = parseFloat(document.getElementById('marginCost').value); 
-            const rev = parseFloat(document.getElementById('marginRevenue').value); 
-            const res = document.getElementById('marginResult'); 
-            if(cost && rev) { 
-                res.innerText = (((rev - cost) / rev) * 100).toFixed(2) + "%"; 
-            } else { res.innerText = "0%"; } 
+        function calcMargin() {
+            const cost = parseFloat(document.getElementById('marginCost').value);
+            const rev = parseFloat(document.getElementById('marginRevenue').value);
+            const res = document.getElementById('marginResult');
+            if (cost && rev) {
+                res.innerText = (((rev - cost) / rev) * 100).toFixed(2) + "%";
+            } else { res.innerText = "0%"; }
         }
 
-        function switchToolTab(tab) { 
-            ['calculator', 'invoice', 'metrics'].forEach(t => { 
-                document.getElementById(`tool-${t}`).classList.add('hidden'); 
-                document.getElementById(`tab-${t}`).classList.remove('bg-sky-50', 'text-sky-800'); 
-                document.getElementById(`tab-${t}`).classList.add('hover:bg-slate-50', 'text-slate-600'); 
-            }); 
-            document.getElementById(`tool-${tab}`).classList.remove('hidden'); 
-            document.getElementById(`tab-${tab}`).classList.add('bg-sky-50', 'text-sky-800'); 
-            document.getElementById(`tab-${tab}`).classList.remove('hover:bg-slate-50', 'text-slate-600'); 
+        function switchToolTab(tab) {
+            ['calculator', 'invoice', 'metrics'].forEach(t => {
+                document.getElementById(`tool-${t}`).classList.add('hidden');
+                document.getElementById(`tab-${t}`).classList.remove('bg-sky-50', 'text-sky-800');
+                document.getElementById(`tab-${t}`).classList.add('hover:bg-slate-50', 'text-slate-600');
+            });
+            document.getElementById(`tool-${tab}`).classList.remove('hidden');
+            document.getElementById(`tab-${tab}`).classList.add('bg-sky-50', 'text-sky-800');
+            document.getElementById(`tab-${tab}`).classList.remove('hover:bg-slate-50', 'text-slate-600');
         }
 
         // --- INVOICE GENERATOR ---
@@ -788,7 +1038,7 @@
             const qty = parseFloat(document.querySelector('.inv-qty').value);
             const price = parseFloat(document.querySelector('.inv-price').value);
 
-            if(!item || !qty || !price) return;
+            if (!item || !qty || !price) return;
 
             const total = qty * price;
             const tbody = document.getElementById('invoiceTableBody');
@@ -816,7 +1066,7 @@
 
         // --- OPERATIONS (PRODUCTS) LOGIC ---
         document.getElementById('productForm').addEventListener('submit', async (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             const { error } = await supabaseClient.from('epsilon_products').insert([{
                 user_id: currentUser.id,
                 type: document.getElementById('prodType').value,
@@ -825,19 +1075,19 @@
                 stock_or_capacity: document.getElementById('prodStock').value,
                 description: document.getElementById('prodDesc').value
             }]);
-            if(error) alert("Error: " + error.message); else { e.target.reset(); loadProducts(); }
+            if (error) alert("Error: " + error.message); else { e.target.reset(); loadProducts(); }
         });
 
         async function loadProducts() {
             let query = supabaseClient.from('epsilon_products').select('*').eq('user_id', currentUser.id).order('created_at', { ascending: false });
-            if(prodFilter === 'product') query = query.eq('type', 'product');
-            if(prodFilter === 'service') query = query.eq('type', 'service');
-            
-            const { data: prods } = await query; 
-            const container = document.getElementById('productsList'); 
+            if (prodFilter === 'product') query = query.eq('type', 'product');
+            if (prodFilter === 'service') query = query.eq('type', 'service');
+
+            const { data: prods } = await query;
+            const container = document.getElementById('productsList');
             container.innerHTML = '';
             if (!prods || prods.length === 0) { container.innerHTML = `<div class="col-span-2 text-center py-10 text-slate-400"><p>No items found.</p></div>`; return; }
-            
+
             prods.forEach(p => {
                 const div = document.createElement('div');
                 const isProd = p.type === 'product';
@@ -863,8 +1113,8 @@
             });
             lucide.createIcons();
         }
-        async function deleteProduct(id) { if(confirm('Remove item?')) { await supabaseClient.from('epsilon_products').delete().eq('id', id); loadProducts(); } }
-        
+        async function deleteProduct(id) { if (confirm('Remove item?')) { await supabaseClient.from('epsilon_products').delete().eq('id', id); loadProducts(); } }
+
         const filterBtns = { 'filterAll': 'all', 'filterProd': 'product', 'filterServ': 'service' };
         Object.keys(filterBtns).forEach(btnId => {
             document.getElementById(btnId).addEventListener('click', (e) => {
@@ -883,7 +1133,7 @@
                 email: document.getElementById('staffEmail').value,
                 salary: parseFloat(document.getElementById('staffSalary').value) || 0
             }]);
-            if(error) alert("Error: " + error.message); else { e.target.reset(); loadStaff(); }
+            if (error) alert("Error: " + error.message); else { e.target.reset(); loadStaff(); }
         });
 
         async function loadStaff() {
@@ -891,7 +1141,7 @@
             const container = document.getElementById('staffList');
             container.innerHTML = '';
             if (!staff || staff.length === 0) { container.innerHTML = `<div class="text-center py-10 text-slate-400"><p>No staff added yet.</p></div>`; return; }
-            
+
             staff.forEach(s => {
                 const div = document.createElement('div');
                 div.className = 'flex items-center justify-between p-4 bg-white border border-slate-100 rounded-xl hover:shadow-sm transition';
@@ -913,7 +1163,7 @@
             });
             lucide.createIcons();
         }
-        async function deleteStaff(id) { if(confirm('Remove employee?')) { await supabaseClient.from('epsilon_staff').delete().eq('id', id); loadStaff(); } }
+        async function deleteStaff(id) { if (confirm('Remove employee?')) { await supabaseClient.from('epsilon_staff').delete().eq('id', id); loadStaff(); } }
 
         // --- CRM LOGIC ---
         document.getElementById('clientForm').addEventListener('submit', async (e) => {
@@ -926,7 +1176,7 @@
                 phone: document.getElementById('clientPhone').value,
                 notes: document.getElementById('clientNotes').value
             }]);
-            if(error) alert("Error: " + error.message); else { e.target.reset(); loadClients(); }
+            if (error) alert("Error: " + error.message); else { e.target.reset(); loadClients(); }
         });
 
         async function loadClients() {
@@ -934,7 +1184,7 @@
             const container = document.getElementById('clientsList');
             container.innerHTML = '';
             if (!clients || clients.length === 0) { container.innerHTML = `<div class="col-span-2 text-center py-10 text-slate-400"><p>No clients found.</p></div>`; return; }
-            
+
             clients.forEach(c => {
                 const div = document.createElement('div');
                 div.className = 'p-4 rounded-xl bg-white border border-slate-100 hover:border-emerald-200 hover:shadow-md transition group';
@@ -957,7 +1207,99 @@
             });
             lucide.createIcons();
         }
-        async function deleteClient(id) { if(confirm('Remove client?')) { await supabaseClient.from('epsilon_clients').delete().eq('id', id); loadClients(); } }
+        async function deleteClient(id) { if (confirm('Remove client?')) { await supabaseClient.from('epsilon_clients').delete().eq('id', id); loadClients(); } }
+
+        // --- ASSETS LOGIC ---
+        document.getElementById('assetForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const { error } = await supabaseClient.from('epsilon_assets').insert([{
+                user_id: currentUser.id,
+                name: document.getElementById('assetName').value,
+                category: document.getElementById('assetCategory').value,
+                value: parseFloat(document.getElementById('assetValue').value),
+                purchase_date: document.getElementById('assetDate').value,
+                status: document.getElementById('assetStatus').value,
+                notes: document.getElementById('assetNotes').value
+            }]);
+            if (error) alert("Error: " + error.message); else { e.target.reset(); loadAssets(); }
+        });
+
+        async function loadAssets() {
+            const { data: assets } = await supabaseClient.from('epsilon_assets').select('*').eq('user_id', currentUser.id).order('created_at', { ascending: false });
+            const container = document.getElementById('assetsList');
+            container.innerHTML = '';
+            if (!assets || assets.length === 0) { container.innerHTML = `<div class="col-span-2 text-center py-10 text-slate-400"><p>No assets found.</p></div>`; return; }
+
+            assets.forEach(a => {
+                const div = document.createElement('div');
+                const statusColor = a.status === 'Active' ? 'bg-green-100 text-green-700' : a.status === 'Maintenance' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700';
+                div.className = 'p-4 rounded-xl bg-white border border-slate-100 hover:shadow-md transition';
+                div.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="hard-drive" class="w-4 h-4 text-slate-400"></i>
+                            <h3 class="font-bold text-slate-800">${a.name}</h3>
+                        </div>
+                        <button onclick="deleteAsset(${a.id})" class="text-slate-300 hover:text-red-500"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                    </div>
+                    <div class="flex gap-2 mb-2">
+                        <span class="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-700">${a.category}</span>
+                        <span class="text-xs px-2 py-1 rounded-full ${statusColor}">${a.status}</span>
+                    </div>
+                    <p class="text-lg font-bold text-slate-800 mb-1">Ksh ${a.value.toLocaleString()}</p>
+                    <p class="text-xs text-slate-400">${a.purchase_date ? 'Purchased: ' + a.purchase_date : ''}</p>
+                    ${a.notes ? `<p class="mt-2 text-xs bg-slate-50 p-2 rounded text-slate-500 italic">${a.notes}</p>` : ''}
+                `;
+                container.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+        async function deleteAsset(id) { if (confirm('Remove asset?')) { await supabaseClient.from('epsilon_assets').delete().eq('id', id); loadAssets(); } }
+
+        // --- DELIVERIES LOGIC ---
+        document.getElementById('deliveryForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const { error } = await supabaseClient.from('epsilon_deliveries').insert([{
+                user_id: currentUser.id,
+                tracking_id: document.getElementById('deliveryTracking').value,
+                customer_name: document.getElementById('deliveryCustomer').value,
+                destination: document.getElementById('deliveryDestination').value,
+                status: document.getElementById('deliveryStatus').value,
+                delivery_date: document.getElementById('deliveryDate').value,
+                notes: document.getElementById('deliveryNotes').value
+            }]);
+            if (error) alert("Error: " + error.message); else { e.target.reset(); loadDeliveries(); }
+        });
+
+        async function loadDeliveries() {
+            const { data: deliveries } = await supabaseClient.from('epsilon_deliveries').select('*').eq('user_id', currentUser.id).order('created_at', { ascending: false });
+            const container = document.getElementById('deliveriesList');
+            container.innerHTML = '';
+            if (!deliveries || deliveries.length === 0) { container.innerHTML = `<div class="text-center py-10 text-slate-400"><p>No deliveries found.</p></div>`; return; }
+
+            deliveries.forEach(d => {
+                const div = document.createElement('div');
+                const statusColor = d.status === 'Delivered' ? 'bg-green-100 text-green-700' : d.status === 'In Transit' ? 'bg-blue-100 text-blue-700' : d.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700';
+                div.className = 'flex items-center justify-between p-4 bg-white border border-slate-100 rounded-xl hover:shadow-sm transition';
+                div.innerHTML = `
+                    <div class="flex items-center gap-4 flex-1">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center"><i data-lucide="truck" class="w-5 h-5"></i></div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-bold text-slate-800">${d.tracking_id}</h3>
+                                <span class="text-xs px-2 py-1 rounded-full ${statusColor}">${d.status}</span>
+                            </div>
+                            <p class="text-sm text-slate-600">${d.customer_name} → ${d.destination}</p>
+                            <p class="text-xs text-slate-400">${d.delivery_date ? 'Due: ' + d.delivery_date : 'No date set'}</p>
+                        </div>
+                    </div>
+                    <button onclick="deleteDelivery(${d.id})" class="ml-4 text-slate-300 hover:text-red-500"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                `;
+                container.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+        async function deleteDelivery(id) { if (confirm('Remove delivery?')) { await supabaseClient.from('epsilon_deliveries').delete().eq('id', id); loadDeliveries(); } }
 
         // --- AUTH LOGIC ---
         async function checkSession() {
@@ -991,11 +1333,11 @@
             const { count: prodCount } = await supabaseClient.from('epsilon_products').select('*', { count: 'exact', head: true }).eq('user_id', currentUser.id);
             const { count: staffCount } = await supabaseClient.from('epsilon_staff').select('*', { count: 'exact', head: true }).eq('user_id', currentUser.id);
             const { count: clientCount } = await supabaseClient.from('epsilon_clients').select('*', { count: 'exact', head: true }).eq('user_id', currentUser.id);
-            
+
             // Simple Revenue Est: Sum of all product prices * 10 (simulated sales)
             const { data: prods } = await supabaseClient.from('epsilon_products').select('price').eq('user_id', currentUser.id);
             let estRev = 0;
-            if(prods) prods.forEach(p => estRev += (p.price * 10));
+            if (prods) prods.forEach(p => estRev += (p.price * 10));
 
             document.getElementById('statProducts').textContent = prodCount || 0;
             document.getElementById('statStaff').textContent = staffCount || 0;
@@ -1010,14 +1352,14 @@
             const pCtx = document.getElementById('productChart').getContext('2d');
             if (productivityChart) productivityChart.destroy();
             productivityChart = new Chart(pCtx, {
-                type: 'doughnut', 
-                data: { 
-                    labels: ['Products', 'Services', 'Clients'], 
-                    datasets: [{ 
-                        data: [prodCount, Math.floor(prodCount/2) + 2, clientCount], 
-                        backgroundColor: ['#0284c7', '#6366f1', '#10b981'], 
-                        borderWidth: 0 
-                    }] 
+                type: 'doughnut',
+                data: {
+                    labels: ['Products', 'Services', 'Clients'],
+                    datasets: [{
+                        data: [prodCount, Math.floor(prodCount / 2) + 2, clientCount],
+                        backgroundColor: ['#0284c7', '#6366f1', '#10b981'],
+                        borderWidth: 0
+                    }]
                 },
                 options: { responsive: true, cutout: '70%', plugins: { legend: { position: 'bottom' } } }
             });
@@ -1031,7 +1373,7 @@
                     labels: ['Active', 'On Leave', 'Remote'],
                     datasets: [{
                         label: 'Staff Count',
-                        data: [staffCount, Math.floor(staffCount/5), Math.floor(staffCount/2)],
+                        data: [staffCount, Math.floor(staffCount / 5), Math.floor(staffCount / 2)],
                         backgroundColor: '#6366f1',
                         borderRadius: 6
                     }]
@@ -1043,4 +1385,5 @@
         checkSession();
     </script>
 </body>
+
 </html>
